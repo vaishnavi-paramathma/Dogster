@@ -1,0 +1,51 @@
+<div class="container">
+    <h1 class="title">Rehome a Pet</h1>
+    <br/><br/>
+ 
+    <form class="form-inline col-sm-offset-3" action="/add_animals" method="post">
+                
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="text" class="form-control" placeholder="Dog_name" id="taskbox" name="dog_name"/>
+    <input type="text" class="form-control" placeholder="breed" id="taskbox" name="breed"/>             
+    <input type="text" class="form-control" placeholder="gender" id="box" name= "gender" />
+    <input type="number" class="form-control" placeholder="Age" id="box" name= "age" />
+
+    <select id="cars" name="neutered" >
+    <option value="Yes">Yes</option>
+    <option value="No">No</option>
+    </select>
+
+    <select id="cars" name="vaccinated" >
+    <option value="Yes">Yes</option>
+    <option value="No">No</option> 
+    </select>
+
+    <select id="cars" name="good_with_dogs" >
+    <option value="Yes">Yes</option>
+    <option value="No">No</option>   
+    </select>
+
+    <select id="cars" name="good_with_cats" >
+    <option value="Yes">Yes</option>
+    <option value="No">No</option>    
+    </select>
+
+    <select id="cars" name="good_with_kids" >
+    <option value="Yes">Yes</option>
+    <option value="No">No</option>  
+    </select>
+
+    <input type="text" class="form-control" placeholder="My_story" id="box" name= "my_story" />
+    <input type="text" class="form-control" placeholder="Additional_adoption_info" id="box" name= "additional_adoption_info" />
+    <input type="file" class="form-control" placeholder="Drop a image" id="box" name= "image" />
+
+    <input type="text"   class="form-control" placeholder="name" id="taskbox" name="owner_name"/>
+    <input type="number" class="form-control" placeholder="Phone number" id="box" name= "ph_no" />
+    <input type="text" class="form-control" placeholder="state" id="taskbox" name="state"/>             
+    <input type="text" class="form-control" placeholder="city" id="box" name= "city" />   
+    <input type="text" class="form-control" placeholder="Please enter addition details about diet,health,behaviour of your pet" id="box" name= "additional_info" />
+    <input type="submit" class="add_button" value="add" id="button"/>
+
+               
+        </form>
+</div>

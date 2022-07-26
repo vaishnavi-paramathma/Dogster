@@ -1,0 +1,131 @@
+// *{
+//    color: black;
+//  }
+ .main_div1 {
+     background-image: url(asset-path('about.png'));
+     background-size: cover;
+     height: 100vh;
+ }
+
+ #aboutus-text{
+   font-family: 'Varela Round', sans-serif;
+   margin-left: 65%;
+   margin-top: 10%;
+ }
+ #about-us-img{
+   width: 40%;
+   height: auto;
+   margin-left: 55%;
+   margin-top: 9%;
+ }
+.aboutus-introduction{
+   width: 40%;
+   height: auto;
+   margin-top: -36%;
+   margin-left: 5%;
+}
+.aboutus-introduction h1{
+   color: red;
+   font-family: 'Varela Round', sans-serif
+}
+.aboutus-introduction p{
+   color: black;
+}
+.features-icon{
+   margin-top: 10%;
+   margin-left: 12%;
+   align-items: center;
+   display: flex;
+}
+#feature1{
+   width: 40%;
+   height: 40%;
+   margin-left: 5%;
+}
+#feature2{
+   width: 40%;
+   height: 40%;
+margin-left: 14%;
+}
+#feature3{
+   width: 40%;
+   height: 40%;
+   margin-left: 18%;
+}
+.rescue-icon h2{
+   color: black;
+   margin-left: 16%;
+}
+.rescue-icon p{
+   color: black;
+   // margin-left: 16%;
+}
+.rehome-icon h2{
+   color: black;
+   margin-left: 22%;
+}
+.rehome-icon p{
+   color: black;
+   margin-left: 8%;
+}
+.adopt-icon h2{
+   color: black;
+   margin-left: 30%;
+}
+.adopt-icon p{
+   color: black;
+   margin-left: 10%;
+}
+
+.faq-container{
+   display: flex;
+}
+
+#faq-img{
+   width: 45%;
+   height: auto;
+   margin-left: 5%;
+   margin-top: 5%;
+}
+.aboutus-content h3,.aboutus-content p{
+   color: black;
+   font-weight: 500;
+   // font-weight: bold;
+   font-family: 'Varela Round', sans-serif;
+}
+.aboutus-content{
+   margin-left: 7%;
+   margin-top: 5%;
+   width: 40%;
+}
+.vaish{
+   margin-top: 10%;
+   display: flex;
+   color: black;
+}
+.aa h3,.bb h3,.cc h3{
+   color: #fb6a43;
+}
+.aa p,.bb p,.cc p{
+   color: black;
+}
+.aa,.bb,.cc{
+   margin-left: 5%;
+}
+.cc i{
+   color: #fb6a43;
+}
+.nav-item-about-nav{
+   background-color: #E24C4C;
+   width: 150px;
+   border-radius: 70px 40px;
+   margin-left: 20px;
+}
+.nav-item-home a,.nav-item-about-nav a{
+   margin-left: 8px;
+   font-size: 20px;
+   font-weight: bold;
+   position: relative;
+}
+
+

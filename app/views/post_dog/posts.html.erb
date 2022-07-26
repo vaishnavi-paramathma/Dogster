@@ -1,0 +1,77 @@
+<div class="title_elements">
+  <span class="Title">Adoption </span>
+</div>
+    
+<div class="main_container_of_list">
+  <table>
+  <% AnimalList.all.each do |animal|%>
+  <div class="">
+  <h6>dog name</h6><%= animal.dog_name %>
+  </div>
+
+  <div class="">
+  <h6>dog name</h6><%= animal.breed %>
+  </div>
+
+  <div class="">
+  <h6>dog name</h6><%= animal.gender %>
+  </div>
+
+  <div class="">
+  <h6>dog name</h6><%= animal.age %>
+  </div>
+
+  <div class="">
+  <h6>dog name</h6><%= animal.neutered %>
+  </div>
+
+  <div class="">
+  <h6>dog name</h6><%= animal.vaccinated %>
+  </div>
+
+  <div class="">
+  <h6>dog name</h6><%= animal.good_with_dogs %>
+  </div>
+
+  <div class="">
+  <h6>dog name</h6><%= animal.good_with_cats %>
+  </div>
+
+  <div class="">
+  <h6>dog name</h6><%= animal.good_with_kids %>
+  </div>
+
+  <div class="">
+ <h6>dog name</h6> <%= animal.my_story %>
+  </div>
+
+  <div class="">
+  <h6>dog name</h6><%= animal.additional_adoption_info %>
+  </div>
+
+  <div class="vaish">
+  <h6>dog name</h6><%= image_tag animal.image %>
+  </div>
+
+<div class="">
+  <h6>dog name</h6><%= animal.owner_name %>
+  </div>
+
+  <div class="">
+  <h6>dog name</h6><%= animal.ph_no %>
+  </div>
+
+  <div class="">
+  <h6>dog name</h6><%= animal.state %>
+  </div>
+
+  <div class="">
+  <h6>dog name</h6><%= animal.city %>
+  </div>
+
+  <div class="">
+  <h6>dog name</h6><%= animal.additional_info %>
+  </div>
+  <% end %>
+  </table>
+</div>

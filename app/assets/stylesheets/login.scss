@@ -1,0 +1,36 @@
+.login_main_div2{
+    background-image: url(asset-path('dogster-bg.png'));
+    background-size: cover;
+    height: 100vh;
+}
+.bg-glass {
+    width:500px;
+    height: 500px;
+  }
+  #login-input{
+    height: 50px;
+  }
+  #login-input-box{
+    background-color:rgba(185, 180, 180, 0.4);
+    width: 50%;
+    height: 52%;
+    margin-left: 62%;
+    margin-top: 14%;
+  }
+  #login-btn{
+    width: 65%;
+    height: 5vh;
+    background-color: #E24C4C;
+    font-size: 25px;
+    font-weight: 600;
+    color: white;
+    border-radius: 70px 40px;
+  }
+  #login-img{
+    width: 10%;
+    height: 10%;
+    display: flex;
+    position: absolute;
+margin-left: -12%;
+    margin-top: 1%;
+ }

@@ -1,0 +1,2 @@
+class AnimalList < ApplicationRecord
+end
