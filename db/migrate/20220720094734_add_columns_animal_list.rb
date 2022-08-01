@@ -1,4 +1,4 @@
-class AddColumnsAnimalList < ActiveRecord::Migration[6.1]
+class AddColumnsAnimal < ActiveRecord::Migration[6.1]
   def change
     add_column :animal_lists, :age, :integer
     add_column :animal_lists, :neutered, :boolean

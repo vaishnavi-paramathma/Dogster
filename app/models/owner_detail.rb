@@ -1,2 +1,3 @@
 class OwnerDetail < ApplicationRecord
+
 end

@@ -16,7 +16,8 @@ Rails.application.routes.draw do
 
   match 'useradditional_adoption_infos/login', to: 'sessions#login', :via=> :post
   
-  match 'posts', to: 'post_dog#posts', :via=> :get
+  # match 'posts', to: 'post_dog#posts', :via=> :get
+  get '/posts', to: 'post_dog#posts'
 
   match 'list', to: 'post_dog#list', :via=> :get
 

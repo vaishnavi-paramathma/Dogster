@@ -1,4 +1,4 @@
-class CreateAnimalLists < ActiveRecord::Migration[6.1]
+class CreateAnimals < ActiveRecord::Migration[6.1]
   def change
     create_table :animal_lists do |t|
       t.string :dog_name

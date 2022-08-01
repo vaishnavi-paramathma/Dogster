@@ -4,16 +4,23 @@
  .main_div1 {
      background-image: url(asset-path('about.png'));
      background-size: cover;
-     height: 100vh;
+     height: 110vh;
  }
-
+.aboutus-introduction p{
+   //   margin-top: 28%;
+     margin-left: 24%;
+}
+.aboutus-introduction h1{
+   margin-top: 24%;
+   margin-left: 24%;
+   }
  #aboutus-text{
    font-family: 'Varela Round', sans-serif;
    margin-left: 65%;
-   margin-top: 10%;
+   margin-top: 20%;
  }
  #about-us-img{
-   width: 40%;
+   width: 30%;
    height: auto;
    margin-left: 55%;
    margin-top: 9%;
@@ -26,7 +33,7 @@
 }
 .aboutus-introduction h1{
    color: red;
-   font-family: 'Varela Round', sans-serif
+   font-family:'Varela Round', sans-serif
 }
 .aboutus-introduction p{
    color: black;
@@ -37,44 +44,43 @@
    align-items: center;
    display: flex;
 }
-#feature1{
-   width: 40%;
-   height: 40%;
-   margin-left: 5%;
-}
+// #feature1{
+//    width:40%;
+//    height:40%;
+//    margin-left:10%;
+// }
 #feature2{
-   width: 40%;
+   width: 30%;
    height: 40%;
-margin-left: 14%;
+   margin-left: 30%;
 }
 #feature3{
-   width: 40%;
+   width: 30%;
    height: 40%;
-   margin-left: 18%;
+   // margin-left: 6%;
 }
-.rescue-icon h2{
-   color: black;
-   margin-left: 16%;
-}
-.rescue-icon p{
-   color: black;
-   // margin-left: 16%;
-}
+// .rescue-icon h2{
+//    color: black;
+//    margin-left: 16%;
+// }
+// .rescue-icon p{
+//    color: black;
+// }
 .rehome-icon h2{
    color: black;
-   margin-left: 22%;
+   margin-left: 38%;
 }
 .rehome-icon p{
    color: black;
-   margin-left: 8%;
+   margin-left: 24%;
 }
 .adopt-icon h2{
    color: black;
-   margin-left: 30%;
+   margin-left: 10%;
 }
 .adopt-icon p{
    color: black;
-   margin-left: 10%;
+   // margin-left: 10%;
 }
 
 .faq-container{
@@ -82,38 +88,61 @@ margin-left: 14%;
 }
 
 #faq-img{
-   width: 45%;
+   width: 30%;
    height: auto;
-   margin-left: 5%;
+   margin-left: 14%;
    margin-top: 5%;
 }
-.aboutus-content h3,.aboutus-content p{
+.aboutus-content p{
    color: black;
    font-weight: 500;
    // font-weight: bold;
    font-family: 'Varela Round', sans-serif;
+   width: 84%;
+}
+.aboutus-content h3{
+   color: #E24C4C;
+   font-weight: 500;
+   // font-weight: bold;
+   font-family: 'Varela Round', sans-serif;
+   width: 84%;
 }
 .aboutus-content{
    margin-left: 7%;
    margin-top: 5%;
    width: 40%;
 }
-.vaish{
-   margin-top: 10%;
+.footer-widget-area{
+   margin-top: 5%;
    display: flex;
    color: black;
+   // border-top: 2px solid red;
+   margin-left: 10%;
+   margin-right: 14%;
 }
-.aa h3,.bb h3,.cc h3{
+.footer-widget-area-about h3,.footer-widget-area-title h3,.footer-widget-area-contact h3{
    color: #fb6a43;
+   width: 20%;
 }
-.aa p,.bb p,.cc p{
+.footer-widget-area-about p,.footer-widget-area-title p,.footer-widget-area-contact p{
    color: black;
 }
-.aa,.bb,.cc{
+.footer-widget-area-about,.footer-widget-area-title,.footer-widget-area-contact{
    margin-left: 5%;
 }
-.cc i{
+.footer-widget-area-contact i{
    color: #fb6a43;
+}
+.footer-widget-area-about{
+   width: 310px;
+}
+.footer-widget-area-title{
+   width: 310px;
+   margin-left: 10%;
+}
+.footer-widget-area-contact{
+   width:310px;
+   margin-left: 10%;
 }
 .nav-item-about-nav{
    background-color: #E24C4C;
@@ -127,5 +156,31 @@ margin-left: 14%;
    font-weight: bold;
    position: relative;
 }
-
+.footer-div{
+  display: flex;
+     border-top: 2px solid black;
+     margin-left: 10%;
+     margin-right: 14%;
+}
+.footer-div h3{
+   font-size: 10px;
+text-align: left;
+color: black;
+margin-left: 2%;
+}
+.footer-div h4{
+   font-size: 10px;
+   color: black;
+margin-left: 68%;
+}
+#submit-button{
+   width: 15%;
+   height: 20%;
+   color: #E24C4C;
+}
+#reset-button{
+   width: 15%;
+   height: 10%;
+   color: #E24C4C;
+}
 

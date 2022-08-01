@@ -1,51 +1,180 @@
-<div class="container">
-    <h1 class="title">Rehome a Pet</h1>
-    <br/><br/>
- 
-    <form class="form-inline col-sm-offset-3" action="/add_animals" method="post">
-                
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-    <input type="text" class="form-control" placeholder="Dog_name" id="taskbox" name="dog_name"/>
-    <input type="text" class="form-control" placeholder="breed" id="taskbox" name="breed"/>             
-    <input type="text" class="form-control" placeholder="gender" id="box" name= "gender" />
-    <input type="number" class="form-control" placeholder="Age" id="box" name= "age" />
+<div class="rehome-main_div">
+  <nav class="main-nav navbar ps-5 pt-5  navbar-expand-lg">
+    <a class="navbar-brand"href="#"></a>
+     <%= image_tag('Group-22.png',alt: "books",id:"logo") %>
+      <ul class="navbar-nav ms-auto me-5">
+        <li class="nav-item-home">
+          <a class="nav-link text-light h4 ps-5 p-1" href="#">Home</a>
 
-    <select id="cars" name="neutered" >
-    <option value="Yes">Yes</option>
-    <option value="No">No</option>
-    </select>
+        </li>
+        <li class="nav-item-about">
+          <a class="nav-link text-light h4 ps-5 p-1" href="/aboutus">About us
+          <%= image_tag('projectpaw.png',alt: "books",class:"img-hover") %></a>
+        </li>
+        <li class="nav-item-adopt">
+          <a class="nav-link text-light h4 ps-5 p-1" href="/posts">Adopt a pet
+          <%= image_tag('projectpaw.png',alt: "books",class:"img-hover") %>
+          </a>
+        </li>
+        <li class="nav-item-rehome">
+          <a class="nav-link text-light h4 ps-5 p-1" href="/list">Rehome a pet
+          <%= image_tag('projectpaw.png',alt: "books",class:"img-hover") %>
+          </a>
+        </li>
+        <li class="nav-item-contact">
+          <a class="nav-link text-light h4 ps-5 p-1" href="#"> Contact us
+          <%= image_tag('projectpaw.png',alt: "books",class:"img-hover") %>
+           </a>
+        </li>
+        <li class="nav-item-account">
+          <a class="nav-link text-light h4 ps-5 p-1" href="/register">My account
+          <%= image_tag('projectpaw.png',alt: "books",class:"img-hover") %>
+          </a>
+        </li>
+        
+      </ul>
+    </nav>
 
-    <select id="cars" name="vaccinated" >
-    <option value="Yes">Yes</option>
-    <option value="No">No</option> 
-    </select>
+  <hr>
+  <%# <div class="rehome-main-container"> %>
+      
+       
+       <%# <form action="/add_animals" method="post"> %>
+       <%# <div class="list-container"> %>
+          <%# <br><h1>Pet Details</h1>         %>
+          <%# <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>
+          <%# <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="Petname">Pet's Name</label>
+              <input type="text" class="form-control" id="input-pet-name" placeholder="Email" name="dog_name"  required>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="petbreed">pet Breed</label>
+              <input type="text" class="form-control" id="input-pet-breed" placeholder="Password" name="breed"  required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="petgender">Pet Gender</label>
+              <input type="text" class="form-control" id="input-pet-gender" placeholder="Email" name= "gender" required>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="petage">Pet Age</label>
+              <input type="number" class="form-control" id="input-pet-age" placeholder="Password" name= "age" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="petneutered">Pet Neutered</label>
+              <select class="form-control"  name="neutered" id="input-pet-neutered" >
+                <option  disabled selected hidden>Please enter your pet is neutered or not?</option>
+                <option value="Yes" id="yes">Yes</option>
+                <option value="No" id="no">No</option>
+              </select>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="petvaccine">Pet Vaccination</label>
+              <select class="form-control" name="vaccinated" id="input-pet-vaccine" >
+            <option  disabled selected hidden>Please enter your pet is vaccinated or not?</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option> 
+          </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="GoodWithDogs">Pet is good with dogs</label>
+              <select class="form-control" name="good_with_dogs" id="input-dogs" >
+                <option  disabled selected hidden>Please enter your pet is good_with_dogs or not?</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>   
+              </select>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="GoodWithCats">Pet is good with cats</label>
+              <select class="form-control" name="good_with_cats" id="input-cats">
+                <option  disabled selected hidden>Please enter your pet is good_with_cats or not?</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>    
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="GoodWithKids">Pet is good with kids</label>
+               <select class="form-control" name="good_with_kids" id="input-kids">
+                  <option  disabled selected hidden>Please enter your pet is good_with_kids or not?</option>
+                  <option value="Yes" >Yes</option>
+                  <option value="No" >No</option>  
+                </select>   
+            </div>
+            <div class="form-group col-md-6">
+              <label for="PetImage">Pet image</label>
+              <input type="file" class="form-control" placeholder="Drop a image" id="input-image" name= "image" required /><br>
+            </div>
+          </div>
+          <div class="form-group col-md-12">
+            <label for="DonatePet">Why do you want to donate the pet</label>
+             <textarea class="form-control"  placeholder="please explain why you want to donate the pet" id="input-note" name= "my_story" required></textarea>
+          </div>
 
-    <select id="cars" name="good_with_dogs" >
-    <option value="Yes">Yes</option>
-    <option value="No">No</option>   
-    </select>
+        <h2 id="input-h2">Personal Details</h2>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="OwnerName"> Name</label>
+                <input type="text" class="form-control"  placeholder="Email" id="input-name" name="owner_name"  required>
+              </div>
+              <div class="form-group col-md-6">    
+                <label for="OwnerPhoneNumber">Phone number</label>
+                <input type="tel" class="form-control"  placeholder="Password" id="input-ph-no" name= "ph_no"  required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="OwnerState">State</label>
+                <input type="text" class="form-control"  placeholder="Email" id="input-state" name="state" required>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="OwnerCity">City</label>
+                <input type="text" class="form-control"  placeholder="Password" id="input-city" name= "city" required>
+              </div>
+            </div>
+            <div class="form-group col-md-12">
+              <label for="AdditionalGrommer">Additional note for grommer</label>
+              <textarea class="form-control"  placeholder="please enter addition details about Diet,health,Behaviour of your pet" id="input-note" name= "additional_info" required></textarea>
+              <%# <input type="submit" class="add_button" value="add" id="button"/> %>
+              <%# <button type="submit" value="add" id="submit-button">Submit</button>
+              <button type="reset" value="Reset" id="reset-button">Reset</button>
+            </div> %> 
+            
+            
+            
+            <%# <%= form_authenticity_token %>
+              <%# <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>
+            
 
-    <select id="cars" name="good_with_cats" >
-    <option value="Yes">Yes</option>
-    <option value="No">No</option>    
-    </select>
+    
 
-    <select id="cars" name="good_with_kids" >
-    <option value="Yes">Yes</option>
-    <option value="No">No</option>  
-    </select>
 
-    <input type="text" class="form-control" placeholder="My_story" id="box" name= "my_story" />
-    <input type="text" class="form-control" placeholder="Additional_adoption_info" id="box" name= "additional_adoption_info" />
-    <input type="file" class="form-control" placeholder="Drop a image" id="box" name= "image" />
+<%# </div> %>
 
-    <input type="text"   class="form-control" placeholder="name" id="taskbox" name="owner_name"/>
-    <input type="number" class="form-control" placeholder="Phone number" id="box" name= "ph_no" />
-    <input type="text" class="form-control" placeholder="state" id="taskbox" name="state"/>             
-    <input type="text" class="form-control" placeholder="city" id="box" name= "city" />   
-    <input type="text" class="form-control" placeholder="Please enter addition details about diet,health,behaviour of your pet" id="box" name= "additional_info" />
-    <input type="submit" class="add_button" value="add" id="button"/>
 
-               
-        </form>
-</div>
+              <%= form_with(model: @animal, method: :post, url: "add_animals") do |f| %>
+               <%= f.text_field :dog_name %>
+               <%= f.text_field :breed, class: "shortInput" %>
+               <%= f.text_field :gender,  class: "shortInput" %>
+               <%= f.number_field :age, class: "shortInput" %>
+               <%= f.select :neutered, options_for_select([["Please enter your pet is neutered or not"],["Yes",1],["No",2]]), class:"select" %>
+               <%= f.select :vaccinated, options_for_select([["Please enter your pet is vaccinated or not"],["Yes",1],["No",2]]), class:"select" %>
+               <%= f.select :good_with_dogs, options_for_select([["Please enter your pet is good with dogs or not"],["Yes",1],["No",2]]), class:"select" %>
+               <%= f.select :good_with_cats, options_for_select([["Please enter your pet is good with cats or not"],["Yes",1],["No",2]]), class:"select" %>
+               <%= f.select :good_with_kids, options_for_select([["Please enter your pet is good with kids or not"],["Yes",1],["No",2]]), class:"select" %>
+               <%= f.text_field :my_story, class: "shortInput" %>
+               <%= f.file_field :image %>
+               <%= f.text_field :owner_name, class: "shortInput" %>
+               <%= f.number_field :ph_no, class: "shortInput" %>
+               <%= f.text_field :state, class: "shortInput" %>
+               <%= f.text_field :city, class: "shortInput" %>
+               <%= f.text_field :additional_info, class: "shortInput" %>
+               <%= submit_tag "Accept Checked", :class => "btn btn-primary" %> 
+            <% end %>

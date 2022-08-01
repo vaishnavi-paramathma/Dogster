@@ -1,4 +1,4 @@
-class AddColumnsAnimalLists < ActiveRecord::Migration[6.1]
+class AddColumnsAnimals < ActiveRecord::Migration[6.1]
   def change
     add_column :animal_lists, :owner_name, :string
     add_column :animal_lists, :ph_no, :bigint
