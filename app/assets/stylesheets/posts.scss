@@ -1,8 +1,132 @@
-.main_container_of_list h6{
-    color: black;
+.adopt-details {
+    width: 22%;
+    background-color: #515151;
+    margin-top: 5%;
+    float: left;
+    margin-left: 10%;
 
 }
-.vaish img{
-    width: 10%;
-    height: 10%;
+.adopt-img{
+    width: 250px;
+    height: 280px;
+    margin-top: 10px;
+    margin-left: 16%;
+    margin-top: 6%;
 }
+#date{
+ position: absolute;
+ margin-top: -19%;
+ background-color: aliceblue;
+ margin-left: 6%;
+}
+
+.adopt-body{
+    margin-left: 8%;
+    // display: flex;
+}
+.adopt-body h1{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif; 
+    margin-left: -3%; 
+    font-size: 25px;
+}
+.adopt-body #gender{
+    display: inline-block;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: -3%;
+    margin-top: -10px;
+    color: #CBCBCB;
+}
+.adopt-body #age{
+    display: inline-block;
+    margin-left: 2%;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #CBCBCB;
+}
+.adopt-body #state{
+    display: inline-block;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: -3%;
+    color: #CBCBCB;
+}
+.adopt-body #city{
+    display: inline-block;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #CBCBCB;
+}
+.adopt-body h2{
+    color: white;
+    margin-top: -4%;
+    font-size: 16px;
+    margin-left: -3%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.adopt-body hr{
+    margin-top: -2%;
+    margin-left: -6%;
+    margin-right: 4%;
+    color: black;
+}
+#own_name{
+    display: inline-block;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif; 
+    margin-left: -3%;
+    margin-top: -5%;
+    color: #CBCBCB;
+}
+
+#email{
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif; 
+    margin-left: -3%;
+    color: #CBCBCB;
+}
+
+.nav-item-about-adopt a{
+    margin-left: 4px;
+    font-size: 20px;
+    font-weight: bold;
+    position: relative;
+}
+.vaishu{
+ background-color: #292929;
+}
+
+.share-with-div hr{
+    margin-top: 2%;
+    // margin-bottom: -1px;
+}
+.adopt-body h3{
+    font-size: 20px;
+    margin-left: 24%;
+    color: #E24C4C;
+}
+.filter-pet-section{
+    background-color:#292929 ;
+}
+.pet-section{
+display: flex;   
+background-color:#292929;
+padding-bottom: 35px;
+justify-content: center;
+align-items: center;
+}
+
+
+.main-container{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: 20%;
+}
+.search-bar{
+    margin-left: -390%;
+    margin-top: 60%;
+}
+

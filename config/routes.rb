@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   # get 'post_dog/posts'
   # get 'users/register'
   root 'home#index'
+  
 
   match'/index',:to=>'home#index',:via=>:get
 
@@ -14,7 +15,7 @@ Rails.application.routes.draw do
 
   match 'users/create', to: 'users#create', :via=> :post
 
-  match 'useradditional_adoption_infos/login', to: 'sessions#login', :via=> :post
+  match 'user/login', to: 'sessions#login', :via=> :post
   
   # match 'posts', to: 'post_dog#posts', :via=> :get
   get '/posts', to: 'post_dog#posts'
@@ -24,8 +25,9 @@ Rails.application.routes.draw do
   match '/add_animals', to: 'post_dog#add_animals', :via=> :post
 
   match '/add_user', to: 'post_dog#add_user', :via=> :post
-
-
+get 'post_dog/dummy'
+get 'post_dog/show/:id', to: 'post_dog#show'
+match '/search', to: 'post_dog#search', via: :get 
  
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

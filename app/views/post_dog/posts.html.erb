@@ -1,60 +1,167 @@
+<div class="pet-section" >
+<div class="vaishu">
+  <nav class="main-nav navbar ps-5 pt-5  navbar-expand-lg">
+    <a class="navbar-brand"href="#"></a>
+     <%= image_tag('Group-22.png',alt: "books",id:"logo") %>
+      <ul class="navbar-nav ms-auto me-5">
+        <li class="nav-item-homes-nav">
+          <a class="nav-link text-light h4 ps-5 p-1" href="#">Home
+          <%= image_tag('projectpaw.png',alt: "books",class:"img-hover") %></a></a>
+
+        </li>
+        <li class="nav-item-about">
+          <a class="nav-link text-light h4 ps-5 p-1" href="/aboutus">About us
+          <%= image_tag('projectpaw.png',alt: "books",class:"img-hover") %></a>
+        </li>
+        <li class="nav-item-adopt">
+          <a class="nav-link text-light h4 ps-5 p-1" href="/posts">Adopt a pet
+          <%= image_tag('projectpaw.png',alt: "books",class:"img-hover") %>
+          </a>
+        </li>
+        <li class="nav-item-rehome">
+          <a class="nav-link text-light h4 ps-5 p-1" href="/list">Rehome a pet
+          <%= image_tag('projectpaw.png',alt: "books",class:"img-hover") %>
+          </a>
+        </li>
+        <li class="nav-item-contact">
+          <a class="nav-link text-light h4 ps-5 p-1" href="#"> Contact us
+          <%= image_tag('projectpaw.png',alt: "books",class:"img-hover") %>
+           </a>
+        </li>
+        <li class="nav-item-account">
+          <% if @current_user == nil  %>
+          <a class="nav-link text-light h4 ps-5 p-1" href="/register">My account
+          <%= image_tag('projectpaw.png',alt: "books",class:"img-hover") %>
+          </a> 
+          <% else %>
+          <a class="nav-link text-light h4 ps-5 p-1" href="#"><%= @current_user.first_name%>
+          <%= image_tag('projectpaw.png',alt: "books",class:"img-hover") %>
+          </a> 
+        <% end %>
+        </li>
+        
+      </ul>
+    </nav><hr>
+
+  <div class="main-container">
+  <% if @presence_value == 0%>
+         <%@animals_details.each do |ani|%>
+  
+  <% logged_user_id = session[:current_user_id] %>
+  <% logged_user = User.find(logged_user_id) %>
+  
+  <div class="adopt-details">
+      <div >
+      <%= image_tag ani.image, class:"adopt-img"%> 
+      </div>
+      <div id="date">
+        <%= "posted on: #{ani.created_at}"%>
+        </div>
+    <div class="adopt-body">
+        <h1> 
+        <%= "#{ani.dog_name}"  %>
+        </h1>
+        <p id="gender">
+        <%= "#{ani.gender} ," %>
+        </p>
+
+        <p id="age">
+        <%= "#{ani.age} year old" %>
+        </p> <br>
+
+        <p id="state">
+        <%= "#{ani.state}, " %>
+        </p>
+
+        <p id="city">
+        <%= "#{ani.city}" %>
+        </p><hr>
+
+       <p id="">
+        <%= logged_user.first_name%>
+        </p>
+
+        <p id="">
+        <%= logged_user.email%>
+        </p>
+      
+
+      <a href="/post_dog/show/<%= ani.id%>"><h3>See more details</h3></a>
 
 
-<%@animals_details.each do |ani|%>
+    </div>
+
+   </div>
+   <% end %>
+   <% elsif @presence_value == 1 and @search_params != []%>
+  <%@animals_details.each do |ani|%>
+  
+  <% logged_user_id = session[:current_user_id] %>
+  <% logged_user = User.find(logged_user_id) %>
+  <% if @search_params.include? ani.id %>
+  <div class="adopt-details">
+      <div >
+      <%= image_tag ani.image, class:"adopt-img"%> 
+      </div>
+      <div id="date">
+        <%= "posted on: #{ani.created_at}"%>
+        </div>
+    <div class="adopt-body">
+        <h1> 
+        <%= "#{ani.dog_name}"  %>
+        </h1>
+        <p id="gender">
+        <%= "#{ani.gender} ," %>
+        </p>
+
+        <p id="age">
+        <%= "#{ani.age} year old" %>
+        </p> <br>
+
+        <p id="state">
+        <%= "#{ani.state}, " %>
+        </p>
+
+        <p id="city">
+        <%= "#{ani.city}" %>
+        </p><hr>
+
+       <p id="">
+        <%= logged_user.first_name%>
+        </p>
+
+        <p id="">
+        <%= logged_user.email%>
+        </p>
+      
+
+      <a href="/post_dog/show/<%= ani.id%>"><h3>See more details</h3></a>
+
+
+    </div>
+
+   </div>
+   <% end %>
+
+</div> 
+</div>
 <div>
-  <%= image_tag(ani.image)%>
-  </div>
- <div> 
-  <%= "pet's name:#{ani.dog_name}" %>
-  </div>
-  <div>
-  <%= "pet's name:#{ani.breed}" %>
-  </div>
-  <div>
-  <%= "pet's name:#{ani.gender}" %>
-  </div>
-  <div>
-  <%= "pet's name:#{ani.age}" %>
-  </div>
-  <div>
-  <%= "pet neutered:#{ani.neutered}" %>
-  </div>
-  <div>
-  <%= "pet neutered:#{ani.vaccinated}" %>
-  </div>
-  <div>
-  <%= "pet neutered:#{ani.good_with_dogs}" %>
-  </div>
-  <div>
-  <%= "pet neutered:#{ani.good_with_cats}" %>
-  </div>
-  <div>
-  <%= "pet is good with kids:" %>
-  <% if ani.good_with_kids == 1 %>
-      Yes it is good with kids
-  <% else %>
-    No it is not good with kids
-  <% end %>
- 
+<% end %>
+<% elsif @search_params == [] and @presence_value == 1 %>
+     <div class="h1" style="background-color: blue;"> Hello </div>
    
- 
-  </div>
-  <div>
-  <%= "pet's name:#{ani.my_story}" %>
-  </div>
-  <div>
-  <%= "pet's name:#{ani.owner_name}" %>
-  </div>
-  <div>
-  <%= "pet's name:#{ani.ph_no}" %>
-  </div>
-  <div>
-  <%= "pet's name:#{ani.state}" %>
-  </div>
-  <div>
-  <%= "pet's name:#{ani.city}" %>
-  </div>
-  <div>
-  <%= "pet's name:#{ani.additional_info}" %>
-  </div>
 <%end%>
+
+  
+<%= form_tag('/search', :method=> "get") do%>
+  <div class="search-bar">
+    <input type="text" name="search" placeholder="type" class="search-field">
+    <%# <%= search_field_tag :search, placeholder: "type", class:"search-field"%>
+     <div class="input-group-btn">
+      <%= button_tag "search ", :class=>'btn btn-info glyphicon glyphicon-search', :first_name => nil%>
+    </div>  
+   </div>
+  <% end %>
+ </div>
+
+ 

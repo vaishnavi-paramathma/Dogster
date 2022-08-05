@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+  skip_before_action :ensure_user_logged_in
   def create
     puts user_param[:first_name]
     user = User.new(user_param)
@@ -12,15 +12,15 @@ class UsersController < ApplicationController
    if user.save
     redirect_to "/login"
    else     
-    render plain: 'failed'
-  #  render 'register'
+  #  redirect_to "/register"
+   render plain: 'register'
    end
   end
 
 
   private
   def user_param
-    params.require(:user).permit(:first_name, :last_name, :email, :address, :password)
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
   end
 
 

@@ -1,60 +1,71 @@
-class PostDogController < ApplicationController
- 
-   def posts
-    @animals_details = Animal.all
-   end
-  
-   def new
-    @animal = Animal.new
+$post_dog = nil
+class PostDogController < ApplicationController 
+  # skip_before_action :ensure_user_logged_in
+  @@array=[]
+  @@presence_value = 0
+  def posts
+    @animals_details = DogList.all
+    @presence = 0
+    @presence_value = presence_value_returner
+    @search_params = array_returner
+    if @search_params == []
+    @presence = 1
     end
+   
+    @@array = []
+    @@presence_value = 0
+
+    
+  end
+  def search
+      @parameter = params[:search]
+      @@array=[]
+      
+      @results = DogList.where("dog_name LIKE?","%" +@parameter +"%")
+     
+     @@presence_value = 1
+      @results.each do|result|
+        @@array.push(result.id)
+        puts result.dog_name
+      end
+      redirect_to "/posts"
+ end
+  
+  def new
+    @animal = DogList.new
+  end
   
   def add_animals
-    
-    # dog_name = params[:dog_name]
-    # breed = params[:breed]
-    # gender=params[:gender]
-    # age = params[:age]
-    # neutered = details[:neutered]=="Yes" ? true : false
-    # # vaccinated = details[:vaccinated]=="Yes" ? true : false
-    # # dogs = details[:good_with_dogs]=="Yes" ? true : false
-    # # cats = details[:good_with_cats]=="Yes" ? true : false
-    # # kids = details[:good_with_kids]=="Yes" ? true : false
+    animal = DogList.new(animals_params)
    
-    # my_story = params[:my_story]
-    # image= params[:image]
-    # owner_name= params[:owner_name]
-    # phone_number= params[:ph_no]
-    # state= params[:state]
-    # city= params[:city]
-    # additional_info= params[:additional_info]
-
-    @animal = Animal.new(animals_params)
-    p "============================================="
-    p "============================================="
-    p "============================================="
     p animals_params[:image]
-    if @animal.save
+    if animal.save
       redirect_to "/posts"
     else
       render plain: "fail"
     end
-
-
   end
-
- 
+  def show
+    id = params[:id]
+    post_dog = DogList.find(id)
+    $dog_details = post_dog
+    redirect_to '/post_dog/dummy'
+  end
   def list
-    @animal = Animal.new
+    @animal = DogList.new
   end
-  
+  def array_returner
+    return @@array
+  end
+  def presence_value_returner
+    return @@presence_value
+  end
   private
-
-  # def details
-  #   params.require(:details).permit(:dog_name, :breed, :gender, :age, :my_story, :image, :owner_name, :ph_no, :state, :city, :additional_info ) 
-  # end
-
   def animals_params
-    params.require(:animal).permit(:dog_name, :breed, :gender, :age, :neutered,:vaccinated, :good_with_dogs, :good_with_cats,:good_with_kids, :my_story, :image, :owner_name, :ph_no, :state, :city, :additional_info )
+    params.require(:animal).permit(:dog_name, :breed, :gender, :age, :neutered,:vaccinated, :good_with_dogs, :good_with_cats,:good_with_kids, :my_story, :image, :ph_no, :state, :city, :additional_adoption_info )
   end
-  
+  def animals_params
+    params.require(:animal).permit(:dog_name, :breed, :gender, :age, :neutered,:vaccinated, :good_with_dogs, :good_with_cats,:good_with_kids, :my_story, :image, :ph_no, :state, :city, :additional_adoption_info, :users_id )
+  end
+ 
 end

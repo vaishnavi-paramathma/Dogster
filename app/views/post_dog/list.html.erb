@@ -27,9 +27,15 @@
            </a>
         </li>
         <li class="nav-item-account">
+          <% if @current_user == nil  %>
           <a class="nav-link text-light h4 ps-5 p-1" href="/register">My account
           <%= image_tag('projectpaw.png',alt: "books",class:"img-hover") %>
-          </a>
+          </a> 
+          <% else %>
+          <a class="nav-link text-light h4 ps-5 p-1" href="#"><%= @current_user.first_name%>
+          <%= image_tag('projectpaw.png',alt: "books",class:"img-hover") %>
+          </a> 
+        <% end %>
         </li>
         
       </ul>
@@ -156,25 +162,26 @@
     
 
 
-<%# </div> %>
+</div>
 
 
-              <%= form_with(model: @animal, method: :post, url: "add_animals") do |f| %>
-               <%= f.text_field :dog_name %>
-               <%= f.text_field :breed, class: "shortInput" %>
-               <%= f.text_field :gender,  class: "shortInput" %>
-               <%= f.number_field :age, class: "shortInput" %>
-               <%= f.select :neutered, options_for_select([["Please enter your pet is neutered or not"],["Yes",1],["No",2]]), class:"select" %>
-               <%= f.select :vaccinated, options_for_select([["Please enter your pet is vaccinated or not"],["Yes",1],["No",2]]), class:"select" %>
-               <%= f.select :good_with_dogs, options_for_select([["Please enter your pet is good with dogs or not"],["Yes",1],["No",2]]), class:"select" %>
-               <%= f.select :good_with_cats, options_for_select([["Please enter your pet is good with cats or not"],["Yes",1],["No",2]]), class:"select" %>
-               <%= f.select :good_with_kids, options_for_select([["Please enter your pet is good with kids or not"],["Yes",1],["No",2]]), class:"select" %>
-               <%= f.text_field :my_story, class: "shortInput" %>
-               <%= f.file_field :image %>
-               <%= f.text_field :owner_name, class: "shortInput" %>
-               <%= f.number_field :ph_no, class: "shortInput" %>
-               <%= f.text_field :state, class: "shortInput" %>
-               <%= f.text_field :city, class: "shortInput" %>
-               <%= f.text_field :additional_info, class: "shortInput" %>
-               <%= submit_tag "Accept Checked", :class => "btn btn-primary" %> 
+            <%= form_with(method: :post, url: "add_animals") do |f| %>
+              <%= f.text_field "animal[dog_name]", required:"true" %>
+              <%= f.text_field "animal[breed]", class: "shortInput", required:"true" %>
+              <%= f.text_field "animal[gender]",  class: "shortInput", required:"true" %>
+              <%= f.number_field "animal[age]", class: "shortInput", required:"true" %>
+              <%= f.select "animal[neutered]", options_for_select([["Please enter your pet is neutered or not"],["Yes",1],["No",2]]), class:"select", required:"true" %>
+              <%= f.select "animal[vaccinated]", options_for_select([["Please enter your pet is vaccinated or not"],["Yes",1],["No",2]]), class:"select", required:"true" %>
+              <%= f.select "animal[good_with_dogs]", options_for_select([["Please enter your pet is good with dogs or not"],["Yes",1],["No",2]]), class:"select", required:"true" %>
+              <%= f.select "animal[good_with_cats]", options_for_select([["Please enter your pet is good with cats or not"],["Yes",1],["No",2]]), class:"select", required:"true" %>
+              <%= f.select "animal[good_with_kids]", options_for_select([["Please enter your pet is good with kids or not"],["Yes",1],["No",2]]), class:"select", required:"true" %>
+              <%= f.text_field "animal[my_story]", class: "shortInput", required:"true" %>
+              <%= f.file_field "animal[image]", required:"true" %>
+              <%= f.label :email %>
+              <%= f.number_field "animal[ph_no]", class: "shortInput", required:"true" %>
+              <%= f.text_field "animal[state]", class: "shortInput", required:"true" %>
+              <%= f.text_field "animal[city]", class: "shortInput", required:"true" %>
+              <%= f.text_field "animal[additional_adoption_info]", class: "shortInput", required:"true" %>
+               <%= f.text_field "animal[users_id]", value: session[:current_user_id], class: "shortInput", required:"true" %>
+              <%= submit_tag "Accept Checked", :class => "btn btn-primary", required:"true" %> 
             <% end %>

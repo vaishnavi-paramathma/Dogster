@@ -1,75 +1,109 @@
-<div class="main_container_of_list">
-  <table>
-  <% @animals_details.each do |animal|%>
-  <div class="">
-  <h6>dog name</h6><%= animal.dog_name %>
-  </div>
+<div class="adopt-pet-details-view-container">
+<div class="viewport">
+  <div class="display-details">
+      <%if $dog_details%>
+        <% logged_user_id = session[:current_user_id] %>
+        <% logged_user = User.find(logged_user_id) %>
+        <%= image_tag $dog_details.image, class:"images"%>
+        <h1>Heya!!! My name is <%=$dog_details.dog_name%> </h1>
+        <h2>Facts about me</h2>
+          <div class="div-column-half1">
 
-  <div class="">
-  <h6>dog name</h6><%= animal.breed %>
-  </div>
+            <h2><%= "Breed" %></h2>
+            <div class="breed">
+            <%=$dog_details.breed %>
+            </div> 
 
-  <div class="">
-  <h6>dog name</h6><%= animal.gender %>
-  </div>
+            <h3><%= "Gender" %></h3>
+            <div class="gender">
+            <%=$dog_details.gender %>
+             </div> 
 
-  <div class="">
-  <h6>dog name</h6><%= animal.age %>
-  </div>
+            <h4><%= "Age" %></h4>
+            <div class="age">
+            <%=$dog_details.age  %>
+            </div>
+            
+          </div>
 
-  <div class="">
-  <h6>dog name</h6><%= animal.neutered %>
-  </div>
+          <div class="div-column-half2">
+           <h2> <%= " Neutered:" %></h2>
+           <div class="neutered">
+            <% if $dog_details.neutered =1%>
+                Yes 
+            <% else%>
+                No 
+            <%end%></div><br>
 
-  <div class="">
-  <h6>dog name</h6><%= animal.vaccinated %>
-  </div>
+           <h3> <%= "Pet Id:" %><h3>
+           <div class="pet-id">
+           <%=$dog_details.id%></div>
 
-  <div class="">
-  <h6>dog name</h6><%= animal.good_with_dogs %>
-  </div>
+            <h4> <%= " vaccinated:" %></h4>
+           <div class="vaccinated">
+            <% if $dog_details.vaccinated =1 %>
+                Yes 
+            <% else %>
+                No 
+            <%end%></div><br>
+          </div> 
+            <h5> My Info</h5>
 
-  <div class="">
-  <h6>dog name</h6><%= animal.good_with_cats %>
-  </div>
+    <div class="box">
+        <div class="one">
+            <%if $dog_details.good_with_dogs=1%>
+            <h6> Good with dogs</h6>
+            <%else%>
+              <p>  Not good with dogs</p>
+            <%end%>
+            </div>
+            <div class="two">
+            <% if $dog_details.good_with_cats=1%>
+                <h6>Good with cats</h6>
+            <%else%>
+               <p> Not good with cats </p>
+            <%end%>
+            </div>
+            <div class="three">
+            <% if $dog_details.good_with_kids = 1 %>
+               <h6> Good with kids</h6>
+            <% else %>
+                <p>Not good with kids</p>
+            <% end %>  
+            </div>
+    </div>
+        <div class="my-story">
+        <h1>My story</h1>
+           <p><%=$dog_details.my_story%></p>
+        </div>
+        <div class="additional-info">
+        <h1>Additional Adoption Info</h1>
+           <p><%=$dog_details.my_story%></p>
+        </div>
+           
+           
+           
+    <div class="shelter-info-container">
+    <h1>Contact Info</h1>
+ 
+    <div class="ph_no"><h4> <%= " Phone number:" %></h4><%=$dog_details.ph_no%></div>
+    </div>
+    <div class="shelter-info-container2">
+         <p id="">
+        <%= logged_user.first_name%>
+        </p> 
 
-  <div class="">
-  <h6>dog name</h6>
-  <% if animal.good_with_kids == true%>
-    Yes it is neutered
-  <% else %>
-    No it is not neutered
-  <% end %>
-  </div>
-
-  <div class="">
- <h6>dog name</h6> <%= animal.my_story %>
-  </div>
-
-
-  <div class="vaish">
-  <h6>dog name</h6>
-  </div>
-
-<div class="">
-  <h6>dog name</h6><%= animal.owner_name %>
-  </div>
-
-  <div class="">
-  <h6>dog name</h6><%= animal.ph_no %>
-  </div>
-
-  <div class="">
-  <h6>dog name</h6><%= animal.state %>
-  </div>
-
-  <div class="">
-  <h6>dog name</h6><%= animal.city %>
-  </div>
-
-  <div class="">
-  <h6>dog name</h6><%= animal.additional_info %>
-  </div>
-  <% end %>
-  </table>
+        <p id="">
+        <%= logged_user.email%>
+        </p>
+    <div class="owner_adress"><h4> <%= " Address:" %></h4><%=$dog_details.state%>,<%=$dog_details.city%>
+    </div>
+            
 </div>
+   
+<%else%>
+<h1>Failed</h1>
+<%end%>
+</div>
+</div>
+  

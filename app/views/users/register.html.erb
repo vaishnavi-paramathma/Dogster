@@ -2,38 +2,40 @@
 <section class="vh-100 bg-image" >
   <div class="mask d-flex align-items-center h-100">
     <div class="container h-100">
- <%= image_tag('Group-22.png',alt: "books",id:"register-img") %>
+     <%= image_tag('Group-22.png',alt: "books",id:"register-img") %>
         <div class="col-12 col-md-9 col-lg-7 col-xl-8" id="input-box">
             <div class="card-body p-5">
               <h2 class="text-uppercase text-center mb-5" id="vaish">Create an account</h2>
               <form action ="/users/create" method="post" >
               <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
                 <div class="form-outline mb-4">
-                  <input type="text" id="form3Example1cg" class="form-control form-control-lg" name="user[first_name]" />
+                  <input type="text" id="form3Example1cg" class="form-control form-control-lg" name="user[first_name]" required />
                   <label class="form-label" for="form3Example1cg" id="label-name" >Your Name</label>
                 </div>
                 <div class="form-outline mb-4">
-                  <input type="text" id="form3Example1cg" class="form-control form-control-lg" name="user[last_name]" />
+                  <input type="text" id="form3Example1cg" class="form-control form-control-lg" name="user[last_name]" required />
                   <label class="form-label" for="form3Example1cg" id="label-name">last Name</label>
                 </div>
                 <div class="form-outline mb-4">
-                  <input type="email" id="form3Example1cg" class="form-control form-control-lg" name="user[email]" />
+                  <input type="email" id="form3Example1cg" class="form-control form-control-lg" name="user[email]" required/>
                   <label class="form-label" for="form3Example1cg" id="label-name">Your Email</label>
                 </div>
 
                  <div class="form-outline mb-4">
-                  <input type="text" id="form3Example1cg" class="form-control form-control-lg" name="user[address]" />
+                  <input type="text" id="form3Example1cg" class="form-control form-control-lg" name="user[address]" required />
                   <label class="form-label" for="form3Example1cg" id="label-name">Address</label>
                 </div>
 
                 <div class="form-outline mb-4">
-                  <input type="password" id="form3Example1cg" class="form-control form-control-lg" name="user[password]" />
+                  <input type="password" id="form3Example2cg" class="form-control form-control-lg" name="user[password]" required  />
+                   <i class="far fa-eye" id="togglePassword"></i>
                   <label class="form-label" for="form3Example1cg" id="label-name">Password</label>
                 </div>
 
                 <div class="form-outline mb-4">
-                  <input type="password" id="form3Example1cg" class="form-control form-control-lg" />
-                  <label class="form-label" for="form3Example1cg" id="label-name">Confirm password</label>
+                  <input type="password" id="form3Example1cg" name="user[password_confirmation]" class="form-control form-control-lg" required />
+                  
+                  <label class="form-label" for="form3Example1cg"  id="label-name">Confirm password</label>
                 </div>
 
                 <%# <div class="form-check d-flex justify-content-center mb-5">
@@ -58,3 +60,4 @@
   </div>
 </section>
 </div>
+<%= javascript_include_tag 'register', 'data-turbolinks-track': 'reload' %>
