@@ -1,0 +1,136 @@
+<%current_user_id=session[:current_user_id]%>
+    <%current_user=User.find(current_user_id) %>
+        <h1> texts </h1>
+            <% DogList.where(users_id: current_user_id).map do |current_user_dog_list| %>
+                <%= image_tag $dog_details.image, class:"images"%>
+                    <h1>Heya!!! My name is <%=current_user_dog_list.dog_name%>
+                    </h1>
+                    <h2>Facts about me</h2>
+                    <div class="div-column-half1">
+
+                        <h2>
+                            <%= "Breed" %>
+                        </h2>
+                        <div class="breed">
+                            <%=current_user_dog_list.breed %>
+                        </div>
+
+                        <h3>
+                            <%= "Gender" %>
+                        </h3>
+                        <div class="gender">
+                            <%=current_user_dog_list.gender %>
+                        </div>
+
+                        <h4>
+                            <%= "Age" %>
+                        </h4>
+                        <div class="age">
+                            <%=current_user_dog_list.age %>
+                        </div>
+
+                    </div>
+
+                    <div class="div-column-half2">
+                        <h2>
+                            <%= " Neutered:" %>
+                        </h2>
+                        <div class="neutered">
+                            <% if current_user_dog_list.neutered=1%>
+                                Yes
+                            <% else%>
+                                    No
+                            <%end%>
+                        </div><br>
+
+                        <h3>
+                            <%= "Pet Id:" %>
+                                <h3>
+                                    <div class="pet-id">
+                                        <%=current_user_dog_list.id%>
+                                    </div>
+
+                                    <h4>
+                                        <%= " vaccinated:" %>
+                                    </h4>
+                                    <div class="vaccinated">
+                                        <% if current_user_dog_list.vaccinated=1 %>
+                                            Yes
+                                            <% else %>
+                                                No
+                                                <%end%>
+                                    </div><br>
+                    </div>
+                    <h5> My Info</h5>
+
+                    <div class="box">
+                        <div class="one">
+                            <%if current_user_dog_list.good_with_dogs==true%>
+                                <h6> Good with dogs</h6>
+                                <%else%>
+                                    <p> Not good with dogs</p>
+
+                                    <%end%>
+                        </div>
+                        <div class="two">
+                            <% if current_user_dog_list.good_with_cats==true%>
+                                <h6>Good with cats</h6>
+                                <%else%>
+                                    <p> Not good with cats </p>
+                                    <%end%>
+                        </div>
+                        <div class="three">
+
+                            <% if current_user_dog_list.good_with_kids==true %>
+                                <h6> Good with kids</h6>
+                                <% else %>
+                                    <p>Not good with kids</p>
+                                    <% end %>
+                        </div>
+                    </div>
+                    <div class="my-story">
+                        <h1>My story</h1>
+                        <p>
+                            <%=current_user_dog_list.my_story%>
+                        </p>
+                    </div>
+                    <div class="additional-info">
+                        <h1>Additional Adoption Info</h1>
+                        <p>
+                            <%=current_user_dog_list.my_story%>
+                        </p>
+                    </div>
+
+
+
+                    <div class="shelter-info-container">
+                        <h1>Contact Info</h1>
+
+                        <div class="ph_no">
+                            <h4>
+                                <%= " Phone number:" %>
+                            </h4>
+                            <%=current_user_dog_list.ph_no%>
+                        </div>
+                    </div>
+                    <div class="shelter-info-container2">
+                        <p id="">
+                            <%= current_user.first_name%>
+                        </p>
+
+                        <p id="">
+                            <%= current_user.email%>
+                        </p>
+                        <div class="owner_adress">
+                            <h4>
+                                <%= " Address:" %>
+                            </h4>
+                            <%=current_user_dog_list.state%>,<%=$dog_details.city%>
+                        </div>
+
+                        <%= form_with(method: :destroy, url: "/delete" ) do |f| %>
+                            <%= f.text_field "post_id" , value:current_user_dog_list.id, class: "shortInput" ,
+                                required:"true" %>
+                                <%= submit_tag "delete" , :class=> "btn btn-primary", required:"true" %>
+                                    <%end%>
+                                        <%end%>

@@ -20,13 +20,13 @@ class PostDogController < ApplicationController
   def search
       @parameter = params[:search]
       @@array=[]
-      
-      @results = DogList.where("dog_name LIKE?","%" +@parameter +"%")
-     
+      puts @parameter
+      @results = DogList.where("city LIKE?","%" +@parameter +"%")
+      puts @results
      @@presence_value = 1
       @results.each do|result|
         @@array.push(result.id)
-        puts result.dog_name
+        puts result.city
       end
       redirect_to "/posts"
  end
@@ -60,10 +60,11 @@ class PostDogController < ApplicationController
   def presence_value_returner
     return @@presence_value
   end
+
+    
+    
   private
-  def animals_params
-    params.require(:animal).permit(:dog_name, :breed, :gender, :age, :neutered,:vaccinated, :good_with_dogs, :good_with_cats,:good_with_kids, :my_story, :image, :ph_no, :state, :city, :additional_adoption_info )
-  end
+
   def animals_params
     params.require(:animal).permit(:dog_name, :breed, :gender, :age, :neutered,:vaccinated, :good_with_dogs, :good_with_cats,:good_with_kids, :my_story, :image, :ph_no, :state, :city, :additional_adoption_info, :users_id )
   end

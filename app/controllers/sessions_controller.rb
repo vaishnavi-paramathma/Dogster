@@ -5,7 +5,6 @@ class SessionsController < ApplicationController
         if @user && @user.authenticate(params[:user][:password])
             session[:current_user_id]= @user.id
             redirect_to "/index"
-            # render plain: "super"
         else
             render plain: "failed"
         end

@@ -1,28 +1,61 @@
+.vaishu{
+    background-color: #292929;
+}
+.pet-section{
+    background-color: #292929;
+    height: auto;
+    width: 100%;
+}
+.search-filters-container{
+    background-color:  #515151;
+    border-radius: 10px;
+    width: 26%;
+    height: 8vh;
+    margin-left: 70%;
+    margin-top: 2%;
+}
+.apply-filter-button{
+    background-color:  #E24C4C;
+    font-size: 20px;
+    margin-top: 3%;
+    color: white; 
+    width: 31%;
+    height: 5vh; 
+    margin-left: 5%;
+    border: none;
+    border-radius: 8px;
+}
+.search-input{
+   background-color:  #515151;
+   width: 60%;
+   height: 7vh;
+   font-size: 20px;
+   color: white;
+   border-radius: 10px;
+   border: none;
+}
 .adopt-details {
-    width: 22%;
+    width: 20%;
     background-color: #515151;
-    margin-top: 5%;
-    float: left;
+    display: inline-block;
     margin-left: 10%;
-
+    margin-top: 5%;
 }
 .adopt-img{
     width: 250px;
     height: 280px;
-    margin-top: 10px;
-    margin-left: 16%;
-    margin-top: 6%;
+    margin-top: 60px;
+    margin-left: 10%;
 }
 #date{
- position: absolute;
- margin-top: -19%;
+
+ margin-top: -20%;
  background-color: aliceblue;
  margin-left: 6%;
 }
 
 .adopt-body{
     margin-left: 8%;
-    // display: flex;
 }
 .adopt-body h1{
     color: white;
@@ -30,12 +63,22 @@
     margin-left: -3%; 
     font-size: 25px;
 }
+.main-container{
+    position: relative;
+    // width: 100vw;
+    background-color: #292929;
+
+}
+
+.sub-main{ position: relative;
+    background-color: #292929;
+}
 .adopt-body #gender{
     display: inline-block;
     font-size: 16px;
     font-family: Arial, Helvetica, sans-serif;
     margin-left: -3%;
-    margin-top: -10px;
+    margin-top: -20px;
     color: #CBCBCB;
 }
 .adopt-body #age{
@@ -58,75 +101,65 @@
     font-family: Arial, Helvetica, sans-serif;
     color: #CBCBCB;
 }
-.adopt-body h2{
-    color: white;
-    margin-top: -4%;
-    font-size: 16px;
-    margin-left: -3%;
-    font-family: Arial, Helvetica, sans-serif;
-}
-.adopt-body hr{
-    margin-top: -2%;
-    margin-left: -6%;
-    margin-right: 4%;
-    color: black;
-}
-#own_name{
-    display: inline-block;
-    font-size: 14px;
-    font-family: Arial, Helvetica, sans-serif; 
-    margin-left: -3%;
-    margin-top: -5%;
-    color: #CBCBCB;
-}
+// .adopt-body h2{
+//     color: white;
+//     margin-top: -4%;
+//     font-size: 16px;
+//     margin-left: -3%;
+//     font-family: Arial, Helvetica, sans-serif;
+// }
+// .adopt-body hr{
+//     margin-top: -2%;
+//     margin-left: -6%;
+//     margin-right: 4%;
+//     color: black;
+// }
+// #own_name{
+//     display: inline-block;
+//     font-size: 14px;
+//     font-family: Arial, Helvetica, sans-serif; 
+//     margin-left: -3%;
+//     margin-top: -5%;
+//     color: #CBCBCB;
+// }
 
-#email{
-    font-size: 14px;
-    font-family: Arial, Helvetica, sans-serif; 
-    margin-left: -3%;
-    color: #CBCBCB;
-}
+// #email{
+//     font-size: 14px;
+//     font-family: Arial, Helvetica, sans-serif; 
+//     margin-left: -3%;
+//     color: #CBCBCB;
+// }
 
-.nav-item-about-adopt a{
-    margin-left: 4px;
-    font-size: 20px;
-    font-weight: bold;
-    position: relative;
-}
-.vaishu{
- background-color: #292929;
-}
+// .nav-item-about-adopt a{
+//     margin-left: 4px;
+//     font-size: 20px;
+//     font-weight: bold;
+//     position: relative;
+// }
 
-.share-with-div hr{
-    margin-top: 2%;
-    // margin-bottom: -1px;
-}
-.adopt-body h3{
-    font-size: 20px;
-    margin-left: 24%;
-    color: #E24C4C;
-}
-.filter-pet-section{
-    background-color:#292929 ;
-}
-.pet-section{
-display: flex;   
-background-color:#292929;
-padding-bottom: 35px;
-justify-content: center;
-align-items: center;
-}
+// .share-with-div hr{
+//     margin-top: 2%;
+// }
+// .adopt-body h3{
+//     font-size: 20px;
+//     margin-left: 24%;
+//     color: #E24C4C;
+// }
+// .filter-pet-section{
+//     background-color:#292929 ;
+// }
+// .pet-section{
+// display: flex;   
+// background-color:#292929;
+// padding-bottom: 35px;
+// }
 
+// .main-container{
+//     width: 100%;
+//     display: flex;
+//     flex-direction: row;
+//     flex-wrap: wrap;
+//     // margin-left: 20%;
+// }
 
-.main-container{
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin-left: 20%;
-}
-.search-bar{
-    margin-left: -390%;
-    margin-top: 60%;
-}
 

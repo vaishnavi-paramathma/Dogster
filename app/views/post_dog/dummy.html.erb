@@ -51,21 +51,23 @@
 
     <div class="box">
         <div class="one">
-            <%if $dog_details.good_with_dogs=1%>
+            <%if $dog_details.good_with_dogs == true%>
             <h6> Good with dogs</h6>
             <%else%>
               <p>  Not good with dogs</p>
+              
             <%end%>
             </div>
             <div class="two">
-            <% if $dog_details.good_with_cats=1%>
+            <% if $dog_details.good_with_cats == true%>
                 <h6>Good with cats</h6>
             <%else%>
                <p> Not good with cats </p>
             <%end%>
             </div>
             <div class="three">
-            <% if $dog_details.good_with_kids = 1 %>
+            
+            <% if $dog_details.good_with_kids == true %>
                <h6> Good with kids</h6>
             <% else %>
                 <p>Not good with kids</p>
@@ -98,9 +100,13 @@
         </p>
     <div class="owner_adress"><h4> <%= " Address:" %></h4><%=$dog_details.state%>,<%=$dog_details.city%>
     </div>
-            
+     <%# <%= form_with(method: :destroy, url: "/delete") do |f| %>  
+    <%# <%= f.text_field "post_id", value:$dog_details.id, class: "shortInput", required:"true" %>
+    <%# <%= submit_tag "delete", :class => "btn btn-primary", required:"true" %> 
+ <%# <%end%> 
+
 </div>
-   
+
 <%else%>
 <h1>Failed</h1>
 <%end%>

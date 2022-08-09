@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   match'/index',:to=>'home#index',:via=>:get
 
+  match'/user_profile',:to=>'home#user_profile',:via=>:get
+
   match'/register', :to=> 'users#register',:via=>:get
 
   match'/login',:to=>'users#login',:via=>:get
@@ -28,6 +30,7 @@ Rails.application.routes.draw do
 get 'post_dog/dummy'
 get 'post_dog/show/:id', to: 'post_dog#show'
 match '/search', to: 'post_dog#search', via: :get 
- 
+match 'delete', to:'home#destroy', :via=> :post
+#  get 'post_dog/destroy/:id', to: 'post_dog#destroy'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

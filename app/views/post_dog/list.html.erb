@@ -170,11 +170,11 @@
               <%= f.text_field "animal[breed]", class: "shortInput", required:"true" %>
               <%= f.text_field "animal[gender]",  class: "shortInput", required:"true" %>
               <%= f.number_field "animal[age]", class: "shortInput", required:"true" %>
-              <%= f.select "animal[neutered]", options_for_select([["Please enter your pet is neutered or not"],["Yes",1],["No",2]]), class:"select", required:"true" %>
-              <%= f.select "animal[vaccinated]", options_for_select([["Please enter your pet is vaccinated or not"],["Yes",1],["No",2]]), class:"select", required:"true" %>
-              <%= f.select "animal[good_with_dogs]", options_for_select([["Please enter your pet is good with dogs or not"],["Yes",1],["No",2]]), class:"select", required:"true" %>
-              <%= f.select "animal[good_with_cats]", options_for_select([["Please enter your pet is good with cats or not"],["Yes",1],["No",2]]), class:"select", required:"true" %>
-              <%= f.select "animal[good_with_kids]", options_for_select([["Please enter your pet is good with kids or not"],["Yes",1],["No",2]]), class:"select", required:"true" %>
+              <%= f.select "animal[neutered]", options_for_select([["Yes"],["No"]]), class:"select", required:"true" %>
+              <%= f.select "animal[vaccinated]", options_for_select([["Yes"],["No"]]), class:"select", required:"true" %>
+              <%= f.select "animal[good_with_dogs]", options_for_select([["Yes"],["No"]]), class:"select", required:"true" %>
+              <%= f.select "animal[good_with_cats]", options_for_select([["Yes"],["No"]]), class:"select", required:"true" %>
+              <%= f.select "animal[good_with_kids]", options_for_select([["Yes"],["No"]]), class:"select", required:"true" %>
               <%= f.text_field "animal[my_story]", class: "shortInput", required:"true" %>
               <%= f.file_field "animal[image]", required:"true" %>
               <%= f.label :email %>
@@ -184,4 +184,5 @@
               <%= f.text_field "animal[additional_adoption_info]", class: "shortInput", required:"true" %>
                <%= f.text_field "animal[users_id]", value: session[:current_user_id], class: "shortInput", required:"true" %>
               <%= submit_tag "Accept Checked", :class => "btn btn-primary", required:"true" %> 
-            <% end %>
+               <%=submit_tag "Clear form", :class => "inputsubmit", :type => 'reset'%>
+            <%end%>
