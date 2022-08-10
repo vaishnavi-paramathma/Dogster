@@ -1,9 +1,7 @@
 class HomeController < ApplicationController
   skip_before_action :ensure_user_logged_in
   def index
-   @current_user = current_user
-   puts "xxxxxxxxxxxxxxx"
-   puts @current_user.id
+   @current_user = @current_user
 
   end
   def aboutus
@@ -16,6 +14,12 @@ class HomeController < ApplicationController
     cur_post = DogList.find(cur_post_id)
     cur_post.destroy
     redirect_to '/posts'
+   end
+   def user_profile
+    @dog = DogList.joins(:wishlist).all.map do |wishlist|
+      wishlist
+    end
+      
    end
   
 end

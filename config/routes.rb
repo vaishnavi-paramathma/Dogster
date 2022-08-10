@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   # match 'posts', to: 'post_dog#posts', :via=> :get
   get '/posts', to: 'post_dog#posts'
 
-  match 'list', to: 'post_dog#list', :via=> :get
+  match '/list', to: 'post_dog#list', :via=> :get
 
   match '/add_animals', to: 'post_dog#add_animals', :via=> :post
 
@@ -31,6 +31,9 @@ get 'post_dog/dummy'
 get 'post_dog/show/:id', to: 'post_dog#show'
 match '/search', to: 'post_dog#search', via: :get 
 match 'delete', to:'home#destroy', :via=> :post
+
+get '/user_profile/:dog_id' , to: 'home#user_profile'
+
 #  get 'post_dog/destroy/:id', to: 'post_dog#destroy'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

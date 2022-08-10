@@ -17,7 +17,8 @@
  #aboutus-text{
    font-family: 'Varela Round', sans-serif;
    margin-left: 65%;
-   margin-top: 20%;
+   margin-top: 14%;
+   color: white;
  }
  #about-us-img{
    width: 30%;
@@ -144,14 +145,17 @@
    width:310px;
    margin-left: 10%;
 }
-.nav-item-about{
+.nav-item-about-aboutuspage{
    background-color: #E24C4C;
-   width: 140px;
+   width: 150px;
    border-radius: 70px 40px;
-   margin-left: 20px;
+   margin-left: 22px;
+   padding-right: 2%;
+
+
 }
-.nav-item-about a{
-   margin-left: 8px;
+.nav-item-about-aboutuspage a{
+   margin-left: 10px;
    font-size: 20px;
    font-weight: bold;
    position: relative;
@@ -161,6 +165,7 @@
    font-size: 20px;
    font-weight: bold;
    position: relative;
+   border-bottom: none;
 }
 .footer-div{
   display: flex;

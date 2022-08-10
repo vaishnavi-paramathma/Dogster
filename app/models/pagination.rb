@@ -1,0 +1,2 @@
+class Pagination < ApplicationRecord
+end

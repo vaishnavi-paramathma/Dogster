@@ -4,7 +4,6 @@ class ApplicationController < ActionController::Base
     def ensure_user_logged_in
         unless current_user
             redirect_to "/login"
-            
         end
     end
 

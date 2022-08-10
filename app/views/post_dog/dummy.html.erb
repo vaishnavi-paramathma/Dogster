@@ -86,24 +86,15 @@
            
            
     <div class="shelter-info-container">
-    <h1>Contact Info</h1>
+      <h1>Contact Info</h1>
  
-    <div class="ph_no"><h4> <%= " Phone number:" %></h4><%=$dog_details.ph_no%></div>
-    </div>
-    <div class="shelter-info-container2">
-         <p id="">
-        <%= logged_user.first_name%>
-        </p> 
-
-        <p id="">
-        <%= logged_user.email%>
-        </p>
-    <div class="owner_adress"><h4> <%= " Address:" %></h4><%=$dog_details.state%>,<%=$dog_details.city%>
-    </div>
-     <%# <%= form_with(method: :destroy, url: "/delete") do |f| %>  
-    <%# <%= f.text_field "post_id", value:$dog_details.id, class: "shortInput", required:"true" %>
-    <%# <%= submit_tag "delete", :class => "btn btn-primary", required:"true" %> 
- <%# <%end%> 
+    <div class="user_name"><h4> <%= " Name:" %></h4><%= logged_user.first_name%></div>
+     <div class="user_mail"><h4> <%= " Email:" %></h4><%= logged_user.email%></div><br>
+      <div class="user_number"><h4> <%= " Phone number:" %></h4><%=$dog_details.ph_no%></div>
+       <div class="user_address"><h4> <%= "Address:" %></h4><%=$dog_details.state%>,<%=$dog_details.city%></div>
+    
+   
+    
 
 </div>
 

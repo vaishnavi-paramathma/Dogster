@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_05_101559) do
+ActiveRecord::Schema.define(version: 2022_08_09_134713) do
 
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -62,6 +62,13 @@ ActiveRecord::Schema.define(version: 2022_08_05_101559) do
     t.index ["users_id"], name: "index_dog_lists_on_users_id"
   end
 
+  create_table "paginations", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "title"
+    t.string "body"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -71,7 +78,16 @@ ActiveRecord::Schema.define(version: 2022_08_05_101559) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "wishlists", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "dog_list_id", null: false
+    t.bigint "current_user_id"
+    t.index ["dog_list_id"], name: "index_wishlists_on_dog_list_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "dog_lists", "users", column: "users_id"
+  add_foreign_key "wishlists", "dog_lists"
 end

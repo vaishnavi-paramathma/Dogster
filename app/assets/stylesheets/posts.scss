@@ -1,3 +1,17 @@
+.nav-item-adopt-adoptpage{
+    background-color: #E24C4C;
+    width: 190px;
+    border-radius: 70px 40px;
+    margin-left: 25px;
+    padding-right: 2%;
+}
+
+.nav-item-adopt-adoptpage a{
+    margin-left: 8px;
+    font-size: 20px;
+    font-weight: bold;
+    position: relative;
+}
 .vaishu{
     background-color: #292929;
 }
@@ -7,7 +21,7 @@
     width: 100%;
 }
 .search-filters-container{
-    background-color:  #515151;
+    background-color:  #D9D9D9;
     border-radius: 10px;
     width: 26%;
     height: 8vh;
@@ -26,7 +40,7 @@
     border-radius: 8px;
 }
 .search-input{
-   background-color:  #515151;
+   background-color:  #D9D9D9;
    width: 60%;
    height: 7vh;
    font-size: 20px;
@@ -44,14 +58,16 @@
 .adopt-img{
     width: 250px;
     height: 280px;
-    margin-top: 60px;
+    margin-top: 20px;
     margin-left: 10%;
 }
 #date{
 
- margin-top: -20%;
+//  margin-top: -100%;
  background-color: aliceblue;
- margin-left: 6%;
+ margin-left: 10%;
+ margin-top: 2%;
+ margin-right: 5%;
 }
 
 .adopt-body{
@@ -101,41 +117,44 @@
     font-family: Arial, Helvetica, sans-serif;
     color: #CBCBCB;
 }
-// .adopt-body h2{
-//     color: white;
-//     margin-top: -4%;
-//     font-size: 16px;
-//     margin-left: -3%;
-//     font-family: Arial, Helvetica, sans-serif;
-// }
-// .adopt-body hr{
-//     margin-top: -2%;
-//     margin-left: -6%;
-//     margin-right: 4%;
-//     color: black;
-// }
-// #own_name{
-//     display: inline-block;
-//     font-size: 14px;
-//     font-family: Arial, Helvetica, sans-serif; 
-//     margin-left: -3%;
-//     margin-top: -5%;
-//     color: #CBCBCB;
-// }
 
-// #email{
-//     font-size: 14px;
-//     font-family: Arial, Helvetica, sans-serif; 
-//     margin-left: -3%;
-//     color: #CBCBCB;
-// }
+.adopt-body h2{
+    color: white;
+    margin-top: -4%;
+    font-size: 16px;
+    margin-left: -3%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.adopt-body hr{
+    margin-top: -2%;
+    margin-left: -6%;
+    margin-right: 4%;
+    color: black;
+}
+#own_name{
+    display: inline-block;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif; 
+    margin-left: -3%;
+    margin-top: -5%;
+    color: #CBCBCB;
+}
 
-// .nav-item-about-adopt a{
-//     margin-left: 4px;
-//     font-size: 20px;
-//     font-weight: bold;
-//     position: relative;
-// }
+#email{
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif; 
+    margin-left: -3%;
+    color: #CBCBCB;
+}
+
+.adopt-body a{
+    margin-left: 4px;
+    font-size: 20px;
+    font-weight: bold;
+
+    color: #E24C4C;
+
+}
 
 // .share-with-div hr{
 //     margin-top: 2%;

@@ -4,7 +4,7 @@ class PostDogController < ApplicationController
   @@array=[]
   @@presence_value = 0
   def posts
-    @animals_details = DogList.all
+    @animals_details = DogList.all.order("created_at DESC")
     @presence = 0
     @presence_value = presence_value_returner
     @search_params = array_returner
@@ -15,7 +15,7 @@ class PostDogController < ApplicationController
     @@array = []
     @@presence_value = 0
 
-    
+    @posts = DogList.order(:@animals_details).page params[:posts]
   end
   def search
       @parameter = params[:search]
@@ -52,7 +52,6 @@ class PostDogController < ApplicationController
     redirect_to '/post_dog/dummy'
   end
   def list
-    @animal = DogList.new
   end
   def array_returner
     return @@array
@@ -61,7 +60,21 @@ class PostDogController < ApplicationController
     return @@presence_value
   end
 
-    
+    def dogs_wishlist
+      current_user_id = session[:current_user_id]
+
+      if current_user_id == nil
+        render plain: false
+      else
+      dog_list = params[:dog_id]
+      puts "dog_id is #{dog_list}"
+      puts "current_user_id is #{current_user_id}"
+      dogs_wishlist = Wishlist.create dog_list_id: dog_list , current_user_id: current_user_id
+      
+      redirect_to '/user_profile'
+      # render plain: true
+      end
+    end
     
   private
 

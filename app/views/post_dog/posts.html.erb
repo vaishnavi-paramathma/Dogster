@@ -6,19 +6,17 @@
       <%= image_tag('Group-22.png',alt: "books" ,id:"logo") %>
         <ul class="navbar-nav ms-auto me-5">
           <li class="nav-item-homes-nav">
-            <a class="nav-link text-light h4 ps-5 p-1" href="#">Home
+            <a class="nav-link text-light h4 ps-5 p-1" href="/index">Home
               <%= image_tag('projectpaw.png',alt: "books" ,class:"img-hover") %>
-            </a></a>
+            </a>
           </li>
-          <li class="nav-item-about">
+          <li class="nav-item-about-homepage">
             <a class="nav-link text-light h4 ps-5 p-1" href="/aboutus">About us
               <%= image_tag('projectpaw.png',alt: "books" ,class:"img-hover") %>
             </a>
           </li>
-          <li class="nav-item-adopt">
-            <a class="nav-link text-light h4 ps-5 p-1" href="/posts">Adopt a pet
-              <%= image_tag('projectpaw.png',alt: "books" ,class:"img-hover") %>
-            </a>
+          <li class="nav-item-adopt-adoptpage">
+            <a class="nav-link text-light h4 ps-5 p-1" href="/posts">Adopt a pet</a>
           </li>
           <li class="nav-item-rehome">
             <a class="nav-link text-light h4 ps-5 p-1" href="/list">Rehome a pet
@@ -36,7 +34,7 @@
                 <%= image_tag('projectpaw.png',alt: "books" ,class:"img-hover") %>
               </a>
               <% else %>
-                <a class="nav-link text-light h4 ps-5 p-1" href="#">
+                <a class="nav-link text-light h4 ps-5 p-1" href="/user_profile">
                   <%= @current_user.first_name%>
                     <%= image_tag('projectpaw.png',alt: "books" ,class:"img-hover") %>
                 </a>
@@ -49,7 +47,7 @@
   <div class="search-filters-container">
     <%= form_tag('/search', :method=> "get") do%>
       <div class="search-bar">
-        <input type="text" name="search" placeholder="Search by place" class="search-input">
+        <input type="text" name="search" placeholder="Search by city" class="search-input">
         <%= button_tag "Apply filter" , :class=>'apply-filter-button' %>
       </div>
       <% end %>
@@ -62,15 +60,16 @@
         <% logged_user=User.find(logged_user_id) %>
 
           <% @animals_details.each do |ani| %>
+           <% @posted_user = User.find(ani.users_id) %>
 
             <div class="adopt-details">
-
-              <div>
-                <%= image_tag ani.image, class:"adopt-img"%>
-              </div>
               <div id="date">
                 <%= "posted on: #{ani.created_at}" %>
               </div>
+              <div>
+              <%= image_tag ani.image , class:"adopt-img" %>
+              </div>
+            <a href="/user_profile/<%= ani['id']%>">  <p>Add</p></a>
               <div class="adopt-body">
                 <h1>
                   <%= "#{ani.dog_name}" %>
@@ -93,11 +92,11 @@
                 <hr>
                 <h2>Owner details</h2>
                 <div id="own_name">
-                  <%= logged_user.first_name%>
+                  <%= @posted_user.first_name%>
                 </div>
 
                 <div id="email">
-                  <%= logged_user.email%>
+                  <%= @posted_user.email%>
                 </div>
 
 
@@ -107,7 +106,6 @@
 
 
               </div>
-
             </div>
             <% end %>
 
@@ -116,15 +114,16 @@
                 <% logged_user_id=session[:current_user_id] %>
                   <% logged_user=User.find(logged_user_id) %>
                     <% @animals_details.each do |ani|%>
-                      <% if @search_params.include? ani.id %>
+                      <% @posted_user = User.find(ani.users_id) %>
                         <div class="sub-main">
                           <div class="adopt-details">
-                            <div>
-                              <%= image_tag ani.image, class:"adopt-img"%>
-                            </div>
                             <div id="date">
                               <%= "posted on: #{ani.created_at}" %>
                             </div>
+                            <div>
+                              <%= image_tag ani.image, class:"adopt-img"%>
+                            </div>
+                            
                             <div class="adopt-body">
                               <h1>
                                 <%= "#{ani.dog_name}" %>
@@ -145,15 +144,14 @@
                                 <%= "#{ani.city}" %>
                               </p>
                               <hr>
-
-                              <p id="">
-                                <%= logged_user.first_name%>
+                              <h2>Owner details</h2>
+                              <p id="own_name">
+                                <%= @posted_user.first_name%>
                               </p>
 
-                              <p id="">
-                                <%= logged_user.email%>
+                              <p id="email">
+                                <%= @posted_user.email%>
                               </p>
-
 
                               <a href="/post_dog/show/<%= ani.id%>">
                                 <h3>See more details</h3>
@@ -168,11 +166,11 @@
   </div>
 </div>
 <div>
-  <% end %>
+ 
     <% elsif @search_params==[] and @presence_value==1 %>
-      <div class="h1" style="background-color: blue;"> Hello </div>
-
+      <div class="unavailable" style="background-color: blue;"> Hello </div>
       <%end%>
+      
 
 </div>
 
