@@ -46,24 +46,26 @@
     </nav>
     <hr>
 
-<input type="button" value="Your Post" id="btn1" style="position: absolute;">
-        <div id="user_post" class="dis-block">
-        <div class="show-image">
-          <%current_user_id=session[:current_user_id]%>
+<input type="button" value="Your Post" id="btn1" onclick="yourpost()" style="position: absolute;">
+<div id="user_post_div">
+<%current_user_id=session[:current_user_id]%>
           <%current_user=User.find(current_user_id) %>
           <% if DogList.where(users_id: current_user_id).length != 0%>
             <% DogList.where(users_id: current_user_id).map do |current_user_dog_list| %>
+        <div id="user_post" class="dis-block">
+        <div class="show-image">
+          
               <%= image_tag current_user_dog_list.image, class:"userpost-images"%><br>
               <a href="/post_dog/show/<%= current_user_dog_list.id%>"><h3>See more details</h3></a>  
               <a class="user_delete" href="delete/<%=current_user_dog_list.id%>" >Delete this post</a>                                  
-            <% end %> 
+        </div>
+        </div>
+        <% end %> 
           <%else%>
             <h1 class="user_profile">You have not posted yet</h1>
           <% end %>
-        </div>
-        </div>
-
-<input type="button" value="Your Wishlist" id="btn2" style="position: absolute;left:
+</div>
+<input type="button" value="Your Wishlist" id="btn2" onclick="wishlist()" style="position: absolute;left:
  43%"> 
  
      <div id="user_wishlist" class="dis-none">
