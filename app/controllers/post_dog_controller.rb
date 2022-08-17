@@ -2,20 +2,21 @@
 
 $post_dog = nil
 class PostDogController < ApplicationController
-  # skip_before_action :ensure_user_logged_in
+  include Pagy::Backend
   @@array = []
   @@presence_value = 0
   def posts
     @animals_details = DogList.all.order('created_at DESC')
-    @presence = 0
     @presence_value = presence_value_returner
     @search_params = array_returner
-    @presence = 1 if @search_params == []
 
     @@array = []
     @@presence_value = 0
+    # @pagy, @pagy_post = pagy(DogList.all, items: 3)
+    #   @posts = DogList.order(:@animals_details).page params[:posts]
 
-    @posts = DogList.order(:@animals_details).page params[:posts]
+    #   p"==============================================================================="
+    #   p @animals_details.ids
   end
 
   def search
@@ -23,7 +24,6 @@ class PostDogController < ApplicationController
     @@array = []
     puts @parameter
     @results = DogList.where('city LIKE?', "%#{@parameter}%")
-    puts @results
     @@presence_value = 1
     @results.each do |result|
       @@array.push(result.id)
@@ -32,15 +32,23 @@ class PostDogController < ApplicationController
     redirect_to '/posts'
   end
 
+  # def search
+  #   if(params["search"])
+  #     @animals_details =DogList.find_by (city== "search")
+  #     redirect_to '/posts'
+  #   else
+  #     render plain "hello"
+  #   end
+  # end
+
   def new
     @animal = DogList.new
   end
 
   def add_animals
-    animal = DogList.new(animals_params)
-
-    p animals_params[:image]
-    if animal.save
+    @animal = DogList.new(animals_params)
+    @animal[:users_id] = @current_user.id
+    if @animal.save
       redirect_to '/posts'
     else
       render plain: 'fail'
@@ -84,6 +92,6 @@ class PostDogController < ApplicationController
 
   def animals_params
     params.require(:animal).permit(:dog_name, :breed, :gender, :age, :neutered, :vaccinated, :good_with_dogs,
-                                   :good_with_cats, :good_with_kids, :my_story, :image, :ph_no, :state, :city, :additional_adoption_info, :users_id)
+                                   :good_with_cats, :good_with_kids, :my_story, :image, :ph_no, :state, :city, :additional_adoption_info)
   end
 end

@@ -34,7 +34,7 @@
             background-color: #E24C4C;
             width: 150px;
             border-radius: 70px 40px;
-            // margin-left: 25px;
+           height: 5%;
         }
     
         .nav-item-home-nav a,.nav-item-about-homepage a,.nav-item-adopt a,.nav-item-rehome a ,.nav-item-contact a,.nav-item-account a{
@@ -80,4 +80,70 @@
             margin-top: -3%;
         }
         
+
+        // .btn {
+        //     background: red;
+        // }
+        .btn btn dropdown-toggle{
+            border: 2px solid red;
+            background-color: #E24C4C;
+        }
+
+        .user_button{
+            background-color: #E24C4C;
+        }
+
+        .nav-link text-white h4 ps-5 p-1{
+            color: white;
+        }
+        
+        // .btn {
+        //     display: inline-block;
+        //     padding: 6px 12px;
+        //     margin-bottom: 0;
+        //     font-size: 14px;
+        //     font-weight: 400;
+        //     line-height: 1.42857143;
+        //     text-align: center;
+        //     white-space: nowrap;
+        //     vertical-align: middle;
+        //     -ms-touch-action: manipulation;
+        //     touch-action: manipulation;
+        //     cursor: pointer;
+        //     -webkit-user-select: none;
+        //     -moz-user-select: none;
+        //     -ms-user-select: none;
+        //     user-select: none;
+        //     background-image: none;
+        //     border: 1px solid transparent;
+        //     border-radius: 4px;
+        //     background: rebeccapurple;
+        //     color: white;
+        // }
+
+        #user_button{
+            color: white;
+            font-size: 20px;
+            font-weight: 600;
+        }
        
+        li.nav-item.custom-nav-link.active a.nav-link {
+            background:#E24C4C;
+            position: relative !important;
+            align-items: center;
+            padding-left: 50%;
+            justify-content:center;
+            height: 5vh;
+            border-radius: 20px;
+           
+            
+        }
+        
+        li.nav-item.custom-nav-link a.nav-link {
+       
+            position: relative !important;
+           padding: auto;
+           font-size: 20px;
+           font-weight: 600;
+        }
+        

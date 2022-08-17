@@ -3,39 +3,37 @@
     <a class="navbar-brand"href="#"></a>
      <%= image_tag('Group-22.png',alt: "books",id:"logo") %>
       <ul class="navbar-nav ms-auto me-5">
-        <li class="nav-item-home">
-          <a class="nav-link text-light h4 ps-5 p-1" href="#">Home</a>
-
-        </li>
-        <li class="nav-item-about">
-          <a class="nav-link text-light h4 ps-5 p-1" href="/aboutus">About us
+        <li class="nav-item custom-nav-link">
+            <a class="nav-link text-light h4 px-5 p-1" href="/index">Home
+              <%= image_tag('projectpaw.png',alt: "books" ,class:"img-hover") %>
+            </a>
+          </li>
+        <li class="nav-item custom-nav-link">
+          <a class="nav-link text-light h4 px-5 p-1" href="/aboutus">About us
           <%= image_tag('projectpaw.png',alt: "books",class:"img-hover") %></a>
         </li>
-        <li class="nav-item-adopt">
-          <a class="nav-link text-light h4 ps-5 p-1" href="/posts">Adopt a pet
-          <%= image_tag('projectpaw.png',alt: "books",class:"img-hover") %>
+        <li class="nav-item custom-nav-link">
+          <a class="nav-link text-light h4 px-5 p-1" href="/posts">Adopt a pet
+          <%= image_tag('projectpaw.png',alt: "books",class:"img-hover") %></a>
           </a>
         </li>
-        <li class="nav-item-rehome">
-          <a class="nav-link text-light h4 ps-5 p-1" href="/list">Rehome a pet
-          <%= image_tag('projectpaw.png',alt: "books",class:"img-hover") %>
+        <li class="nav-item custom-nav-link active">
+          <a class="nav-link text-light h4 px-5 p-1" href="/list">Rehome a pet
           </a>
         </li>
-        <li class="nav-item-contact">
-          <a class="nav-link text-light h4 ps-5 p-1" href="#"> Contact us
-          <%= image_tag('projectpaw.png',alt: "books",class:"img-hover") %>
-           </a>
-        </li>
-        <li class="nav-item-account">
-          <% if @current_user == nil  %>
-          <a class="nav-link text-light h4 ps-5 p-1" href="/register">My account
+      
+         <li class="nav-item custom-nav-link">
+        <% if session[:current_user_id] == nil  %>
+          <a class="nav-link text-light h4 px-5 p-1" href="/register">My account
           <%= image_tag('projectpaw.png',alt: "books",class:"img-hover") %>
           </a> 
           <% else %>
-          <a class="nav-link text-light h4 ps-5 p-1" href="#"><%= @current_user.first_name%>
+          <% logged_user = User.find(session[:current_user_id]) %>
+          <a class="nav-link text-light h4 ps-5 p-1" href="/user_profile"><%= logged_user["first_name"]%>
           <%= image_tag('projectpaw.png',alt: "books",class:"img-hover") %>
           </a> 
         <% end %>
+         
         </li>
         
       </ul>
@@ -75,8 +73,7 @@
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="petneutered">Pet Neutered</label>
-              <%= f.select "animal[neutered]", options_for_select([["Yes"],["No"]]), class:"form-control",id:"input-pet-neutered", required:"true" %>
-             
+              <div class="select-option"><%= f.select "animal[neutered]", options_for_select([["Yes"],["No"]]),class: 'form-control', id:"input-pet-neutered", required:"true" %></div>
             </div>
             <div class="form-group col-md-6">
               <label for="petvaccine">Pet Vaccination</label>
@@ -119,34 +116,63 @@
               
               <div class="form-group col-md-6">    
                 <label for="OwnerPhoneNumber">Phone number</label>
-                <input type="tel" class="form-control"  placeholder="Password" id="input-ph-no" name= "ph_no"  required>
+                 <%= f.number_field "animal[ph_no]", class: "form-control", id: "input-ph-no", required:"true" %>
               </div>
             </div>
             <div class="form-row">
               <div class="form-group col-md-6">
-                <label for="OwnerState">State</label>
-                <input type="text" class="form-control"  placeholder="Email" id="input-state" name="state" required>
+              <label for="petage">State</label>
+               <%= f.text_field "animal[state]", class: "form-control", id:"input-state", required:"true" %>
               </div>
               <div class="form-group col-md-6">
                 <label for="OwnerCity">City</label>
-                <%= f.text_area "animal[additional_adoption_info]", class:"form-control",id:"input-city", required:"true" %>
+                <%= f.text_field "animal[city]", class:"form-control",id:"input-city", required:"true" %>
               </div>
             </div>
             <div class="form-group col-md-12">
               <label for="AdditionalGrommer">Additional note for grommer</label>
-
-              <textarea class="form-control"  placeholder="please enter addition details about Diet,health,Behaviour of your pet" id="input-note" name= "additional_info" required></textarea>
+              <%= f.text_area "animal[:additional_adoption_info]", class: "shortInput", id:"input-note",class:"form-control", required:"true" %>
+              
                 
-             <%= submit_tag "Accept Checked", :class => "btn btn-primary",id:"submit-button", required:"true" %>
-             <%=submit_tag "Clear form", :class => "inputsubmit",id:"reset-button", :type => 'reset'%>
+                
+             <%= submit_tag "Submit", class: "input-submit", required:"true" %>
+             <%# <%=submit_tag "Clear form", class: "inputsubmit",id:"reset-button", :type => 'reset'%> 
               
                
             </div>  
             <%end%>
             </div>
+           
             
-            <%# <%= form_authenticity_token %>
-              <%# <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>
+          <%#  <h6 > Rehome your pet stress-free
+
+Rehoming or donating your pet should be easy and stress-free both for you and your pet.
+
+ThePetNest, India's first pet care market place has taken the initiative to remove your pet where your pet will be home again. We have created a reliable, simple & free initiative to help you rehome your pet from your loving family directly to another family.
+
+Here are some tips for putting your pet for adoption in a loving new home and family -
+
+Make your pet look more attractive to potential new owners. Make sure your pet is vaccinated and checked by a veterinarian. Also, make sure your pet is spayed and neutered. This will make your cat or dog more likely to be chosen by a new owner.
+
+Be transparent/clear with the new owner. Share all the details about your pet's personality and how they get along with cats, dogs, and people. Share your dog's or cat's favorite food, game, things, and any medical or behavior issues your pet is experiencing so that potential new adopters will have the information they need to determine if your cat or dog would be a good fit for their home and family.
+
+Why rehome your pet?
+
+ThePetNest provides adopters to meet and learn about cats or dogs from the owners who know them best.
+Loving fur baby families keep their cats or dogs out of the shelter homes. By rehoming a cat or dog, they can find them loving & caring new family.
+Shelter homes can focus only on limited resources for your pet.
+Your cat or dog goes directly from one loving home to another potential owner. ThePetNest provides a stress-free pet adoption platform theryby reducing the chance of illness or discomfort.
+How does pet rehoming work?
+
+Fill in your personal and pet details in the form
+Provide every detail of your pet including diet, medication, or existing illness if any.
+Upload clear and attractive pictures of your pet for potential owners to see and explore.
+Submit the details to ThePetNest. Your pet details would be seen by potentials owners.
+Potential owners would contact you for more details if required and talk to them to see if they are a great fill for your fur baby.
+ThePetNest is India's first pet care marketplace to provide an online pet adoption platform and community where people who want to adopt a dog or cat connect with people who need to rehome a dog or cat. The best possible way to care about your beloved pet is to keep them out of the shelter homes and rehoming your dog or cat to a loving family. Rehoming a dog or cat is the best kind of pet adoption, in every possible way.
+
+
+</h6> %>
           
 </div>
 

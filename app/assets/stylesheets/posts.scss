@@ -55,6 +55,9 @@
     margin-left: 10%;
     margin-top: 5%;
 }
+
+
+
 .adopt-img{
     width: 250px;
     height: 280px;
@@ -145,17 +148,28 @@
     font-family: Arial, Helvetica, sans-serif; 
     margin-left: -3%;
     color: #CBCBCB;
+    margin-top: -2%;
 }
 
-.adopt-body a{
-    margin-left: 4px;
+.adopt-body a h3{
+    margin-left: 12%;
     font-size: 20px;
     font-weight: bold;
-
+    margin-top: -0%;
     color: #E24C4C;
-
 }
-
+#wishlist-icon{
+    color: #E24C4C;
+    font-size: 28px;
+    position: absolute;
+    margin-top: 2%;
+    margin-left: 2%;
+}
+#pagination{
+    margin-left: 44%;
+    font-size: 25px;
+    color: #E24C4C;
+}
 // .share-with-div hr{
 //     margin-top: 2%;
 // }

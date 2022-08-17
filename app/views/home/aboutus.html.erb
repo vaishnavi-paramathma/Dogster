@@ -3,33 +3,38 @@
     <a class="navbar-brand"href="#"></a>
      <%= image_tag('Group-22.png',alt: "books",id:"logo") %>
       <ul class="navbar-nav ms-auto me-5">
-        <li class="nav-item-homes-nav">
-          <a class="nav-link text-light h4 ps-5 p-1" href="/index">Home
+        <li class="nav-item custom-nav-link">
+          <a class="nav-link text-light h4 px-5 p-1" href="/index">Home
           <%= image_tag('projectpaw.png',alt: "books",class:"img-hover") %></a></a>
 
         </li>
-        <li class="nav-item-about-aboutuspage">
-          <a class="nav-link text-light h4 ps-5 p-1" href="/aboutus">About us</a>
+        <li class="nav-item custom-nav-link active">
+          <a class="nav-link text-light h4 px-5 p-1" href="/aboutus">About us</a>
         </li>
-        <li class="nav-item-adopt">
-          <a class="nav-link text-light h4 ps-5 p-1" href="/posts">Adopt a pet
+        <li class="nav-item custom-nav-link">
+          <a class="nav-link text-light h4 px-5 p-1" href="/posts">Adopt a pet
           <%= image_tag('projectpaw.png',alt: "books",class:"img-hover") %>
           </a>
         </li>
-        <li class="nav-item-rehome">
-          <a class="nav-link text-light h4 ps-5 p-1" href="/list">Rehome a pet
+        <li class="nav-item custom-nav-link">
+          <a class="nav-link text-light h4 px-5 p-1" href="/list">Rehome a pet
           <%= image_tag('projectpaw.png',alt: "books",class:"img-hover") %>
           </a>
         </li>
-        <li class="nav-item-contact">
-          <a class="nav-link text-light h4 ps-5 p-1" href="#"> Contact us
+        <li class="nav-item custom-nav-link">
+       <% if @presence==0 %>
+          <a class="nav-link text-light h4 px-5 p-1" href="/register">My account
           <%= image_tag('projectpaw.png',alt: "books",class:"img-hover") %>
-           </a>
-        </li>
-        <li class="nav-item-account">
-          <a class="nav-link text-light h4 ps-5 p-1" href="/register">My account
-          <%= image_tag('projectpaw.png',alt: "books",class:"img-hover") %>
-          </a>
+          </a> 
+          <% else %>
+          <% logged_user = User.find(session[:current_user_id]) %>
+          <button class="btn btn dropdown-toggle" id="user_button" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= logged_user["first_name"]%></button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <a class=" ps-4" href="/user_profile"><button class="dropdown-item" type="button">user profile</button></a>
+            <a href="/logout" class="dropdown-item" type="button" data-method="delete">Log out</a>
+          </div>
+          </a> 
+        <% end %> 
         </li>
         
       </ul>
