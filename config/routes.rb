@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   match '/add_animals', to: 'post_dog#add_animals', via: :post
 
   match '/add_user', to: 'post_dog#add_user', via: :post
-  get 'post_dog/dummy'
+  get 'post_dog/dog_details'
   get 'post_dog/show/:id', to: 'post_dog#show'
   match '/search', to: 'post_dog#search', via: :get
   get '/delete/:id', to: 'home#user_destroy'

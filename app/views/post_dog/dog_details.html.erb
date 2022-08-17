@@ -1,0 +1,106 @@
+<div class="adopt-pet-details-view-container">
+<div class="viewport">
+  <div class="display-details">
+      <%if $dog_details%>
+        <% logged_user_id = session[:current_user_id] %>
+        <% logged_user = User.find(logged_user_id) %>
+        <%= image_tag $dog_details.image, class:"images"%>
+        <h1>Heya!!! My name is <%=$dog_details.dog_name%> </h1>
+        <h2>Facts about me</h2>
+          <div class="div-column-half1">
+
+            <h2><%= "Breed" %></h2>
+            <div class="breed">
+            <%=$dog_details.breed %>
+            </div> 
+
+            <h3><%= "Gender" %></h3>
+            <div class="gender">
+            <%=$dog_details.gender %>
+             </div> 
+
+            <h4><%= "Age" %></h4>
+            <div class="age">
+            <%=$dog_details.age  %>
+            </div>
+            
+          </div>
+
+          <div class="div-column-half2">
+           <h2> <%= " Neutered:" %></h2>
+           <div class="neutered">
+            <% if $dog_details.neutered =1%>
+                Yes 
+            <% else%>
+                No 
+            <%end%></div><br>
+
+           <h3> <%= "Pet Id:" %><h3>
+           <div class="pet-id">
+           <%=$dog_details.id%></div>
+
+            <h4> <%= " vaccinated:" %></h4>
+           <div class="vaccinated">
+            <% if $dog_details.vaccinated =1 %>
+                Yes 
+            <% else %>
+                No 
+            <%end%></div><br>
+          </div> 
+            <h5> My Info</h5>
+
+    <div class="box">
+        <div class="one">
+            <%if $dog_details.good_with_dogs == true%>
+            <h6> Good with dogs</h6>
+            <%else%>
+              <p>  Not good with dogs</p>
+              
+            <%end%>
+            </div>
+            <div class="two">
+            <% if $dog_details.good_with_cats == true%>
+                <h6>Good with cats</h6>
+            <%else%>
+               <p> Not good with cats </p>
+            <%end%>
+            </div>
+            <div class="three">
+            
+            <% if $dog_details.good_with_kids == true %>
+               <h6> Good with kids</h6>
+            <% else %>
+                <p>Not good with kids</p>
+            <% end %>  
+            </div>
+    </div>
+        <div class="my-story">
+        <h1>My story</h1>
+           <p><%=$dog_details.my_story%></p>
+        </div>
+        <div class="additional-info">
+        <h1>Additional Adoption Info</h1>
+           <p><%=$dog_details.my_story%></p>
+        </div>
+           
+           
+           
+    <div class="shelter-info-container">
+      <h1>Contact Info</h1>
+ 
+    <div class="user_name"><h4> <%= " Name:" %></h4><%= logged_user.first_name%></div>
+     <div class="user_mail"><h4> <%= " Email:" %></h4><%= logged_user.email%></div><br>
+      <div class="user_number"><h4> <%= " Phone number:" %></h4><%=$dog_details.ph_no%></div>
+       <div class="user_address"><h4> <%= "Address:" %></h4><%=$dog_details.state%>,<%=$dog_details.city%></div>
+    
+   
+    
+
+</div>
+
+<%else%>
+<h1>Failed</h1>
+<%end%>
+</div>
+</div>
+  

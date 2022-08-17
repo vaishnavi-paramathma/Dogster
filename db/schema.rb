@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_220_809_134_713) do
+ActiveRecord::Schema.define(version: 20_220_817_105_624) do
   create_table 'active_storage_attachments', charset: 'utf8mb4', collation: 'utf8mb4_0900_ai_ci', force: :cascade do |t|
     t.string 'name', null: false
     t.string 'record_type', null: false
@@ -92,5 +92,5 @@ ActiveRecord::Schema.define(version: 20_220_809_134_713) do
   add_foreign_key 'active_storage_attachments', 'active_storage_blobs', column: 'blob_id'
   add_foreign_key 'active_storage_variant_records', 'active_storage_blobs', column: 'blob_id'
   add_foreign_key 'dog_lists', 'users', column: 'users_id'
-  add_foreign_key 'wishlists', 'dog_lists'
+  add_foreign_key 'wishlists', 'dog_lists', on_update: :cascade, on_delete: :cascade
 end

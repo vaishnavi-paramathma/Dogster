@@ -32,15 +32,6 @@ class PostDogController < ApplicationController
     redirect_to '/posts'
   end
 
-  # def search
-  #   if(params["search"])
-  #     @animals_details =DogList.find_by (city== "search")
-  #     redirect_to '/posts'
-  #   else
-  #     render plain "hello"
-  #   end
-  # end
-
   def new
     @animal = DogList.new
   end
@@ -51,7 +42,8 @@ class PostDogController < ApplicationController
     if @animal.save
       redirect_to '/posts'
     else
-      render plain: 'fail'
+      flash[:error] = @animal.errors.full_messages.join(',')
+      redirect_to '/list'
     end
   end
 
@@ -59,7 +51,7 @@ class PostDogController < ApplicationController
     id = params[:id]
     post_dog = DogList.find(id)
     $dog_details = post_dog
-    redirect_to '/post_dog/dummy'
+    redirect_to '/post_dog/dog_details'
   end
 
   def list; end
@@ -82,7 +74,6 @@ class PostDogController < ApplicationController
       puts "dog_id is #{dog_list}"
       puts "current_user_id is #{current_user_id}"
       dogs_wishlist = Wishlist.create dog_list_id: dog_list, current_user_id: current_user_id
-
       redirect_to '/user_profile'
       # render plain: true
     end
