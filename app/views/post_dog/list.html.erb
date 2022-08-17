@@ -48,7 +48,9 @@
       <%= form_with(method: :post, url: "add_animals") do |f| %>
         <div class="list-container"> 
           <br><h1>Pet Details</h1>         
-          
+           <% if flash[:error]%>
+                  <p class = "flash-error_rehome_page"><%= flash[:error]%></p>
+                <%end%>
            <div class="form-row">
             <div class="form-group col-md-6">
               <label for="Petname">Pet's Name</label>

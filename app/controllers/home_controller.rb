@@ -14,15 +14,25 @@ class HomeController < ApplicationController
 
   def aboutus
     @current_user = @current_user
+    if current_user
+      @user = User.find(current_user.id)
+      @presence = 1
+    else
+      @presence = 0
+    end
   end
 
   def user_destroy
-    #  destroy_id = DogList.where(users_id: sessions[:users_id], id:post_id)
+    # destroy_id = DogList.where(users_id: sessions[:users_id], id:post_id)
 
     cur_post_id = params[:id]
     cur_post = DogList.find_by(id: cur_post_id)
     cur_post.destroy
     redirect_to '/posts'
+  end
+
+  def self.down
+    remove_column :DogList, :id
   end
 
   def user_profile
