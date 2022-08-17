@@ -5,40 +5,39 @@
       </a>
       <%= image_tag('Group-22.png',alt: "books" ,id:"logo") %>
         <ul class="navbar-nav ms-auto me-5">
-          <li class="nav-item-homes-nav">
-            <a class="nav-link text-light h4 ps-5 p-1" href="/index">Home
+          <li class="nav-item custom-nav-link">
+            <a class="nav-link text-light h4 px-5 p-1" href="/index">Home
               <%= image_tag('projectpaw.png',alt: "books" ,class:"img-hover") %>
             </a>
           </li>
-          <li class="nav-item-about-homepage">
-            <a class="nav-link text-light h4 ps-5 p-1" href="/aboutus">About us
+          <li class="nav-item custom-nav-link">
+            <a class="nav-link text-light h4 px-5 p-1" href="/aboutus">About us
               <%= image_tag('projectpaw.png',alt: "books" ,class:"img-hover") %>
             </a>
           </li>
-          <li class="nav-item-adopt-adoptpage">
-            <a class="nav-link text-light h4 ps-5 p-1" href="/posts">Adopt a pet</a>
+          <li class="nav-item custom-nav-link active">
+            <a class="nav-link text-light h4 px-5 p-1" href="/posts">Adopt a pet</a>
           </li>
-          <li class="nav-item-rehome">
-            <a class="nav-link text-light h4 ps-5 p-1" href="/list">Rehome a pet
+          <li class="nav-item custom-nav-link">
+            <a class="nav-link text-light h4 px-5 p-1" href="/list">Rehome a pet
               <%= image_tag('projectpaw.png',alt: "books" ,class:"img-hover") %>
             </a>
           </li>
-          <li class="nav-item-contact">
-            <a class="nav-link text-light h4 ps-5 p-1" href="#"> Contact us
-              <%= image_tag('projectpaw.png',alt: "books" ,class:"img-hover") %>
-            </a>
-          </li>
-          <li class="nav-item-account">
-            <% if @current_user==nil %>
-              <a class="nav-link text-light h4 ps-5 p-1" href="/register">My account
-                <%= image_tag('projectpaw.png',alt: "books" ,class:"img-hover") %>
-              </a>
-              <% else %>
-                <a class="nav-link text-light h4 ps-5 p-1" href="/user_profile">
-                  <%= @current_user.first_name%>
-                    <%= image_tag('projectpaw.png',alt: "books" ,class:"img-hover") %>
-                </a>
-                <% end %>
+         <li class="nav-item custom-nav-link">
+          <% logged_user = User.find(session[:current_user_id]) %>
+        <% if logged_user.present? %>
+          <button class="btn btn dropdown-toggle" id="user_button" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= logged_user["first_name"]%></button>
+          <div class="dropdown-menu " aria-labelledby="dropdownMenu2">
+            <a class=" ps-4" href="/user_profile"><button class="dropdown-item" type="button">user profile</button></a>
+            <a href="/logout" class="dropdown-item" type="button" data-method="delete">Log out</a>
+          </div>
+          </a> 
+          
+          <% else %>
+          <a class="nav-link text-light h4 ps-5 p-1" href="/register">My account
+          <%= image_tag('projectpaw.png',alt: "books",class:"img-hover") %>
+          </a> 
+        <% end %>
           </li>
         </ul>
     </nav>
@@ -55,72 +54,68 @@
 
   <div class="main-container">
     <% if @presence_value==0%>
-
       <% logged_user_id=session[:current_user_id] %>
         <% logged_user=User.find(logged_user_id) %>
-
           <% @animals_details.each do |ani| %>
-           <% @posted_user = User.find(ani.users_id) %>
-
+             <% @posted_user = User.find(ani.users_id) %> 
+           
             <div class="adopt-details">
               <div id="date">
                 <%= "posted on: #{ani.created_at}" %>
               </div>
               <div>
-              <%= image_tag ani.image , class:"adopt-img" %>
+              <a href="/user_profile/<%= ani['id']%>"data-method="post"> <i class='bx bx-heart' id="wishlist-icon"></i></a>
+                <%= image_tag ani.image, class:"adopt-img"%>
               </div>
-            <a href="/user_profile/<%= ani['id']%>">  <p>Add</p></a>
+              
               <div class="adopt-body">
+               <h1><% ani.users_id%></h1>
                 <h1>
                   <%= "#{ani.dog_name}" %>
                 </h1>
                 <p id="gender">
                   <%= "#{ani.gender} ," %>
                 </p>
-
+                
                 <p id="age">
                   <%= "#{ani.age} year old" %>
                 </p> <br>
-
                 <p id="state">
                   <%= "#{ani.state}, " %>
                 </p>
-
                 <p id="city">
                   <%= "#{ani.city}" %>
                 </p>
                 <hr>
                 <h2>Owner details</h2>
-                <div id="own_name">
-                  <%= @posted_user.first_name%>
-                </div>
+              
+                               <h1 id="own_name">
+                                <%= @posted_user.first_name%>
+                               </h1>
 
-                <div id="email">
-                  <%= @posted_user.email%>
-                </div>
-
-
+                              <h1 id="email">
+                                <%= @posted_user.email%>
+                               </h1>
+               
                 <a href="/post_dog/show/<%= ani.id%>">
                   <h3>See more details</h3>
                 </a>
-
-
               </div>
             </div>
             <% end %>
-
-
               <% elsif @presence_value==1 and @search_params !=[]%>
                 <% logged_user_id=session[:current_user_id] %>
                   <% logged_user=User.find(logged_user_id) %>
                     <% @animals_details.each do |ani|%>
                       <% @posted_user = User.find(ani.users_id) %>
-                        <div class="sub-main">
+                      <% if @search_params.include? ani.id %>
+                       
                           <div class="adopt-details">
-                            <div id="date">
+                          <div id="date">
                               <%= "posted on: #{ani.created_at}" %>
                             </div>
                             <div>
+                            <a href="/user_profile/<%= ani['id']%>"data-method="post"> <i class='bx bx-heart' id="wishlist-icon"></i></a>
                               <%= image_tag ani.image, class:"adopt-img"%>
                             </div>
                             
@@ -131,15 +126,12 @@
                               <p id="gender">
                                 <%= "#{ani.gender} ," %>
                               </p>
-
                               <p id="age">
                                 <%= "#{ani.age} year old" %>
                               </p> <br>
-
                               <p id="state">
                                 <%= "#{ani.state}, " %>
                               </p>
-
                               <p id="city">
                                 <%= "#{ani.city}" %>
                               </p>
@@ -152,26 +144,21 @@
                               <p id="email">
                                 <%= @posted_user.email%>
                               </p>
-
+                              
                               <a href="/post_dog/show/<%= ani.id%>">
                                 <h3>See more details</h3>
                               </a>
-
-
                             </div>
-
                           </div>
                           <% end %>
-                        </div>
-  </div>
-</div>
-<div>
- 
+                      
+  
+  
+  <% end %>
     <% elsif @search_params==[] and @presence_value==1 %>
-      <div class="unavailable" style="background-color: blue;"> Hello </div>
-      <%end%>
+      <div class="h1" style="background-color: blue;"> Hello </div>
+    <%end%> 
+    <%# <div id = "pagination"><%= pagy_nav(@pagy).html_safe %> 
+    <%# </div> %>
       
 
-</div>
-
-</div>

@@ -1,3 +1,122 @@
+.user_profile_main-div{
+    background-color: #292929;
+    height: 100vh;
+}
 .user_profile{
     color: black;
 }
+#user_post{
+    width: 24%;
+    height: 50%;
+    float: left;
+    background-color: #515151;
+    margin-top: 5%;
+    margin-left: 8%;
+}
+#user_wishlist{
+    display: none;
+}
+
+#btn1{
+//   outline: none;
+  background: transparent;
+  border: none;
+  color: white;
+  margin-left: 8%;
+  font-size: 25px;
+//   text-decoration: underline 3px #E24C4C;
+}
+#btn2{
+  outline: none;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 25px;
+  margin-left: -24%;
+}
+.userpost-images{
+    width: 20vw;
+    height: 40vh;
+   padding-top: 5%;
+   margin-left: 8%;
+}
+.wishlist-images{
+    width: 20vw;
+    height: 40vh;
+   padding-top: 5%;
+   margin-left: 10%;
+}
+
+.show-image {
+    position: relative;
+    float:left;
+    margin:5px;
+    
+}
+.userpost-images:hover .userpost-images{
+    opacity:0.8;
+}
+.show-image a h3{
+color: #E24C4C;
+border-bottom: none;
+margin-left: 26%;
+}
+.show-image:hover .user_delete {
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    display: block;
+    margin-left: -52%;
+     margin-top: 96%;
+}
+.show-image .user_delete  {
+    position:absolute;
+    display:none;
+}
+
+.show-image .user_delete {
+    top:0;
+    left:79%;
+}
+
+.show-wishlist-image{
+    display: flex;
+    flex-wrap: wrap; 
+    background-color: #292929;
+}
+.nav-item-account-nav{
+    background-color: #E24C4C;
+    width: 190px;
+    border-radius: 70px 40px;
+    margin-left: 25px;
+    padding-right: 2%;
+}
+.nav-item-account-nav a{
+ margin-left: 8px;
+ font-size: 20px;
+ font-weight: bold;
+ position: relative;
+ align-items: center;
+}
+
+
+.seeMore{
+    color: #E24C4C;
+    margin-left: 25%;
+}
+.content-holder{
+    // width: 30vw;
+    // height: 30vh;
+    background-color: #515151;
+    margin-left: 8%;
+    margin-top: 5%;
+}
+ .user_wishlist-delete {
+    
+    font-size: 20px;
+    font-weight: 600;
+    margin-left: 40%;
+    //  margin-top: 96%;
+}
+
+

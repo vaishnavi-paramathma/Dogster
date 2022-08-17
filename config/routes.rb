@@ -31,10 +31,12 @@ Rails.application.routes.draw do
   get 'post_dog/dummy'
   get 'post_dog/show/:id', to: 'post_dog#show'
   match '/search', to: 'post_dog#search', via: :get
-  match 'delete', to: 'home#destroy', via: :post
+  get '/delete/:id', to: 'home#user_destroy'
   post '/user_profile/:dog_id', to: 'home#user_profile_creator'
   get '/user_profile/:dog_id', to: 'home#user_profile'
+  delete 'user_profile/:wishlist_id', to: 'home#wishlist_destroy'
 
+  delete 'logout', to: 'sessions#logout', as: :destroy_session
   #  get 'post_dog/destroy/:id', to: 'post_dog#destroy'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -15,7 +15,9 @@ class UsersController < ApplicationController
       redirect_to '/login'
     else
       #  redirect_to "/register"
-      render plain: 'register'
+      flash[:error] = user.errors.full_messages.join(',')
+      redirect_to '/register'
+
     end
   end
 

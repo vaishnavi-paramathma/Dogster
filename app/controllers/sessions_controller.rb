@@ -8,7 +8,14 @@ class SessionsController < ApplicationController
       session[:current_user_id] = @user.id
       redirect_to '/index'
     else
-      render plain: 'failed'
+      flash[:error] = 'Invalid email or password'
+      redirect_to '/login'
     end
+  end
+
+  def logout
+    session[:current_user_id] = nil
+    @current_user = nil
+    redirect_to '/'
   end
 end

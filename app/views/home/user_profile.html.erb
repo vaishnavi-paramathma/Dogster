@@ -1,140 +1,145 @@
-<%current_user_id=session[:current_user_id]%>
-    <%current_user=User.find(current_user_id) %>
-        <%# <h1> texts </h1> %>
+
+<div class="user_profile_main-div">
+
+  <nav class="main-nav navbar ps-5 pt-5  navbar-expand-lg">
+    <a class="navbar-brand"href="#"></a>
+     <%= image_tag('Group-22.png',alt: "books",id:"logo") %>
+      <ul class="navbar-nav ms-auto me-5">
+        <li class="nav-item custom-nav-link">
+            <a class="nav-link text-light h4 px-5 p-1" href="/index">Home
+              <%= image_tag('projectpaw.png',alt: "books" ,class:"img-hover") %>
+            </a>
+          </li>
+        <li class="nav-item custom-nav-link">
+          <a class="nav-link text-light h4 px-5 p-1" href="/aboutus">About us
+          <%= image_tag('projectpaw.png',alt: "books",class:"img-hover") %></a>
+        </li>
+        <li class="nav-item custom-nav-link">
+          <a class="nav-link text-light h4 px-5 p-1" href="/posts">Adopt a pet
+          <%= image_tag('projectpaw.png',alt: "books",class:"img-hover") %>
+          </a>
+        </li>
+        <li class="nav-item custom-nav-link">
+          <a class="nav-link text-light h4 px-5 p-1" href="/list">Rehome a pet
+          <%= image_tag('projectpaw.png',alt: "books",class:"img-hover") %>
+          </a>
+        </li>
+
+        <li class="nav-item custom-nav-link active">
+        <% if @presence==0 %>
+          <a class="nav-link text-light h4 px-5 p-1" href="/register">My account
+          <%= image_tag('projectpaw.png',alt: "books",class:"img-hover") %>
+          </a> 
+          <% else %>
+          <% logged_user = User.find(session[:current_user_id]) %>
+          <button class="btn btn dropdown-toggle" id="user_button" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= logged_user["first_name"]%></button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <a class=" ps-4" href="/user_profile"><button class="dropdown-item" type="button">user profile</button></a>
+            <a href="/logout" class="dropdown-item" type="button" data-method="delete">Log out</a>
+          </div>
+          </a> 
+        <% end %> 
+         
+        </li>
+        
+      </ul>
+    </nav>
+    <hr>
+
+<input type="button" value="Your Post" id="btn1" style="position: absolute;">
+        <div id="user_post" class="dis-block">
+        <div class="show-image">
+          <%current_user_id=session[:current_user_id]%>
+          <%current_user=User.find(current_user_id) %>
+          <% if DogList.where(users_id: current_user_id).length != 0%>
+            <% DogList.where(users_id: current_user_id).map do |current_user_dog_list| %>
+              <%= image_tag current_user_dog_list.image, class:"userpost-images"%><br>
+              <a href="/post_dog/show/<%= current_user_dog_list.id%>"><h3>See more details</h3></a>  
+              <a class="user_delete" href="delete/<%=current_user_dog_list.id%>" >Delete this post</a>                                  
+            <% end %> 
+          <%else%>
+            <h1 class="user_profile">You have not posted yet</h1>
+          <% end %>
+        </div>
+        </div>
+
+<input type="button" value="Your Wishlist" id="btn2" style="position: absolute;left:
+ 43%"> 
+ 
+     <div id="user_wishlist" class="dis-none">
+        <div class="show-wishlist-image">
+        
+          <% user_wishlist= session[:current_user_id] %>         
+          <% wishList = Wishlist.where(current_user_id: user_wishlist) %>
+          <% wishList.each do|wish|%>
+          <% dog=DogList.find(wish.dog_list_id)%>
+          <div class="content-holder">
+          <%= image_tag dog.image, class:"wishlist-images"%>
+          <a href="/user_profile/<%=wish.id%>" data-method="delete" class="user_wishlist-delete"><%= button_tag "Delete" %></a>
+          <a href="/post_dog/show/<%= dog.id%>">
+            <h3 class="seeMore">See more details</h3></a>
+            </div>
+            <% end %> 
+        
+      </div>
+    </div>
+   
+<%= javascript_include_tag 'user_profile', 'data-turbolinks-track': 'reload' %>
+
+<!-- <input type="button" value="user_posts" id="btn1" style="position: absolute;"> -->
+<!-- <div class="post-wish-holder">
+  <div class="container">
+
+    <div class="holder-post">
+
+      <div class="items-nav-post">
+        <ul>
+          <button id="btnNew1" onclick="btnNew1()"> posts</button>
+          <button id="btnNew2" onclick="btnNew2()">Wishlist</button>
+        </ul>
+        <button id="hello" onclick="hello()">hello</button>
+      </div>
+      <div class="card-pet-wish" >
         <% if DogList.where(users_id: current_user_id).length != 0%>
-                <% DogList.where(users_id: current_user_id).map do |current_user_dog_list| %>
-                    <%= image_tag current_user_dog_list.image, class:"images"%>
-                        <h1>Heya!!! My name is <%=current_user_dog_list.dog_name%></h1>
-                        <h2>Facts about me</h2>
-                        <div class="div-column-half1">
-                        <h2>Breed</h2>
-                        <div class="breed"><%=current_user_dog_list.breed %></div>
-                        <h3>Gender</h3>
-                        <div class="gender"><%=current_user_dog_list.gender %></div>
-                        <h4>Age</h4>
-                        <div class="age"><%=current_user_dog_list.age %></div>
-                        <div class="div-column-half2">
-                            <h2>Neutered:</h2>
-                            <div class="neutered">
-                                <% if current_user_dog_list.neutered=1%>
-                                    Yes
-                                <% else%>
-                                    No
-                                <%end%>
-                            </div>
-                            <br>
-                            <h3>Pet Id<h3>
-                                    <div class="pet-id">
-                                        <%=current_user_dog_list.id%>
-                                    </div>
+        <% DogList.where(users_id: current_user_id).map do |current_user_dog_list| %>
+        <div id="user_post1">
+            <%= image_tag current_user_dog_list.image, class:"userpost-images"%>
+            <div class="card-text"></div><a class="user_wishlist-delete" href="delete/<%=current_user_dog_list.id%>" >Delete this post</a>                                  
+            <div class="card-text"></div><a href="/post_dog/show/<%= current_user_dog_list.id%>"><h3>See more details</h3></a>
+          </div>
+            <% end %> 
+        <%else%>
+         <h1 class="user_profile">You have not posted yet</h1>
+        <% end %> 
 
-                                    <h4>
-                                        <%= " vaccinated:" %>
-                                    </h4>
-                                    <div class="vaccinated">
-                                        <% if current_user_dog_list.vaccinated=1 %>
-                                            Yes
-                                            <% else %>
-                                                No
-                                                <%end%>
-                                    </div><br>
-                    </div>
-                    <h5> My Info</h5>
-
-                    <div class="box">
-                        <div class="one">
-                            <%if current_user_dog_list.good_with_dogs==true%>
-                                <h6> Good with dogs</h6>
-                                <%else%>
-                                    <p> Not good with dogs</p>
-
-                                    <%end%>
-                        </div>
-                        <div class="two">
-                            <% if current_user_dog_list.good_with_cats==true%>
-                                <h6>Good with cats</h6>
-                                <%else%>
-                                    <p> Not good with cats </p>
-                                    <%end%>
-                        </div>
-                        <div class="three">
-
-                            <% if current_user_dog_list.good_with_kids==true %>
-                                <h6> Good with kids</h6>
-                                <% else %>
-                                    <p>Not good with kids</p>
-                                    <% end %>
-                        </div>
-                    </div>
-                    <div class="my-story">
-                        <h1>My story</h1>
-                        <p>
-                            <%=current_user_dog_list.my_story%>
-                        </p>
-                    </div>
-                    <div class="additional-info">
-                        <h1>Additional Adoption Info</h1>
-                        <p>
-                            <%=current_user_dog_list.my_story%>
-                        </p>
-                    </div>
+      </div>
+      
+    </div>
+  </div>
+</div> -->
 
 
 
-                    <div class="shelter-info-container">
-                        <h1>Contact Info</h1>
 
-                        <div class="ph_no">
-                            <h4>
-                                <%= " Phone number:" %>
-                            </h4>
-                            <%=current_user_dog_list.ph_no%>
-                        </div>
-                    </div>
-                    <div class="shelter-info-container2">
-                        <p id="">
-                            <%= current_user.first_name%>
-                        </p>
+<!-- <input type="button" value="user_wishlist" id="btn2" style="position: absolute;left:43%">  -->
 
-                        <p id="">
-                            <%= current_user.email%>
-                        </p>
-                        <div class="owner_adress">
-                            <h4>
-                                <%= " Address:" %>
-                            </h4>
-                            <%=current_user_dog_list.state%>,<%=current_user_dog_list.city%>
-                        </div>
-                        
-                        <%= form_with(method: :destroy, url: "/delete" ) do |f| %>
-                            <%= f.text_field "post_id" , value:current_user_dog_list.id, class: "shortInput" ,
-                                required:"true" %>
-                                <%= submit_tag "delete" , :class=> "btn btn-primary", required:"true" %>
-                                    <%end%>
-                                    <% end %> 
-                                    <%else%>
-                                    <h1 class="user_profile">You have not posted yet</h1>
-                                    <% end %>
+      <!-- <div class="card-pet-wishlist" >
+        <% wishList.each do|wish|%>
+        <% dog=DogList.find(wish.dog_list_id)%>
+        <div class="card-holder" id="user_wishlist1">
+          <%= image_tag dog.image, class:"card-img"%>
+          <div class="card-text"><a href="/user_profile/<%=wish.id%>" data-method="delete" class="user_wishlist-delete"><%= button_tag "delete" %></a></div>
+          <div class="card-text"><a href="/post_dog/show/<%= dog.id%>"> <h3>See more details</h3></a></div>
 
+        </div>
+        <% end %> 
 
-        <%# <% if DogList.where(users_id: current_user_id).length != 0%>   
-     <%# <% WishList.where(users_id: current_user_id).map do |dog| %>                                   %>
-                 
-                <%# <%end %> 
-                <%# <%else%> 
-
-                <%# <%end%>   
-                <%# <h1> <%=current_user_id%> 
-               <% user_wishlist= session[:current_user_id] %>         
-     <% wishList = Wishlist.where(current_user_id: user_wishlist) %>
-     <% if wishList.length != 0%>
-        <% @dog.each do |dog|%>
-          <%= image_tag dog.image %>
-        <%end%> 
-     <%else%>
-         No wishlist
-     <%end%>
+      </div>
+       -->
+   
+</div>
 
 
 
-     
+
+  

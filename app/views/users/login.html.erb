@@ -8,7 +8,9 @@
               <h2 class="text-uppercase text-center mb-5" id="vaish">Log In</h2>
               <form action ="/user/login" method="post" >
               <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
-                
+                <% if flash[:error]%>
+                  <p class = "flash-error_signup_page"><%= flash[:error]%></p>
+                <%end%>
                 <div class="form-outline mb-4">
                   <input type="email" id="login-input" class="form-control form-control-lg" name="user[email]" required />
                   <label class="form-label" for="form3Example1cg" id="label-name">Your Email</label>
