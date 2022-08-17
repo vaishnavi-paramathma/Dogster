@@ -22,15 +22,15 @@
           </a>
         </li>
         <li class="nav-item custom-nav-link">
-       <% if @presence==0 %>
+        <% if @presence==0 %>
           <a class="nav-link text-light h4 px-5 p-1" href="/register">My account
           <%= image_tag('projectpaw.png',alt: "books",class:"img-hover") %>
           </a> 
           <% else %>
           <% logged_user = User.find(session[:current_user_id]) %>
           <button class="btn btn dropdown-toggle" id="user_button" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= logged_user["first_name"]%></button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-            <a class=" ps-4" href="/user_profile"><button class="dropdown-item" type="button">user profile</button></a>
+          <div class="dropdown-menu" id="dropdown-box" aria-labelledby="dropdownMenu2">
+            <a href="/user_profile" class="dropdown-item" type="button">user profile</a>
             <a href="/logout" class="dropdown-item" type="button" data-method="delete">Log out</a>
           </div>
           </a> 
@@ -46,9 +46,9 @@
 <div class="aboutus-introduction">
 <h1>Our Introduction</h1>
 <p style="font-size:1.5vw;"> How many times have you seen an abandoned and hurt animals?
-How many times have you felt helpless and couldn't help them? Well we are here
-to solve your worries. At Dogster we have the perfect solution for all of us we have a helpline 
-service to help rescue animals. We also Re-Home animals from owners who are unable 
+Have you taken it home and not had facilities to take care of it? Well we are here
+to solve your worries. At Dogster we have the perfect solution for all of us 
+.We Re-Home animals from owners who are unable 
 to manage their pets. so, come to us for your dog worries!!! </p>
 </div>
 <div class="features-icon">
@@ -98,9 +98,7 @@ to manage their pets. so, come to us for your dog worries!!! </p>
 <div class="footer-widget-area">
 <div class="footer-widget-area-about">
 <h3 style="font-size:1.5vw;">Dogster</h3>
- <p style="font-size:1.2vw;">There are many variations of passages of Lorem Ipsum available,
-  but the majority have suffered alteration in some form, by injected humour, or
-   randomised words which.</p>
+ <p style="font-size:1.2vw;">We are here to make sure that all dogs are safe and are taken care of.</p>
 </div>
 <div class="footer-widget-area-title">
 <h3 style="font-size:1.5vw;">Opening Hours</h3>

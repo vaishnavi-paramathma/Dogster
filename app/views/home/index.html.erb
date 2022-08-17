@@ -31,8 +31,8 @@
           <% else %>
           <% logged_user = User.find(session[:current_user_id]) %>
           <button class="btn btn dropdown-toggle" id="user_button" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= logged_user["first_name"]%></button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-            <a class=" ps-4" href="/user_profile"><button class="dropdown-item" type="button">user profile</button></a>
+          <div class="dropdown-menu" id="dropdown-box" aria-labelledby="dropdownMenu2">
+            <a href="/user_profile" class="dropdown-item" type="button">user profile</a>
             <a href="/logout" class="dropdown-item" type="button" data-method="delete">Log out</a>
           </div>
           </a> 

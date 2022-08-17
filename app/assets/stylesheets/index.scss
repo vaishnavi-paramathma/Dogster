@@ -134,16 +134,24 @@
             padding-left: 50%;
             justify-content:center;
             height: 5vh;
-            border-radius: 20px;
-           
-            
+            border-radius: 20px;            
         }
         
         li.nav-item.custom-nav-link a.nav-link {
-       
             position: relative !important;
            padding: auto;
            font-size: 20px;
            font-weight: 600;
+        }
+        #dropdown-box{
+            background-color: white;
+            margin-left: 88%;
+            width: 50px;
+            // color: white;
+        }
+        #dropdown-box a{
+            color:#E24C4C;
+            font-size: 18px;
+            font-weight: 600;
         }
         

@@ -23,17 +23,19 @@
         </li>
       
          <li class="nav-item custom-nav-link">
-        <% if session[:current_user_id] == nil  %>
+        <% if @presence==0 %>
           <a class="nav-link text-light h4 px-5 p-1" href="/register">My account
           <%= image_tag('projectpaw.png',alt: "books",class:"img-hover") %>
           </a> 
           <% else %>
           <% logged_user = User.find(session[:current_user_id]) %>
-          <a class="nav-link text-light h4 ps-5 p-1" href="/user_profile"><%= logged_user["first_name"]%>
-          <%= image_tag('projectpaw.png',alt: "books",class:"img-hover") %>
+          <button class="btn btn dropdown-toggle" id="user_button" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= logged_user["first_name"]%></button>
+          <div class="dropdown-menu" id="dropdown-box" aria-labelledby="dropdownMenu2">
+            <a href="/user_profile" class="dropdown-item" type="button">user profile</a>
+            <a href="/logout" class="dropdown-item" type="button" data-method="delete">Log out</a>
+          </div>
           </a> 
-        <% end %>
-         
+        <% end %> 
         </li>
         
       </ul>
