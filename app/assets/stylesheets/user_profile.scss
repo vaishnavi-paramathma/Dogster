@@ -41,7 +41,7 @@
    margin-left: 8%;
 }
 .wishlist-images{
-    width: 20vw;
+    width: 18vw;
     height: 40vh;
    padding-top: 5%;
    margin-left: 10%;
@@ -81,6 +81,7 @@ margin-left: 26%;
 .show-wishlist-image{
     display: flex;
     flex-wrap: wrap; 
+  
     background-color: #292929;
 }
 .nav-item-account-nav{
@@ -104,16 +105,21 @@ margin-left: 26%;
     margin-left: 25%;
 }
 .content-holder{
-    // width: 30vw;
-    // height: 30vh;
     background-color: #515151;
     margin-left: 8%;
     margin-top: 5%;
+    width: 23vw;
 }
  .user_wishlist-delete {
     
     font-size: 20px;
     font-weight: 600;
     margin-left: 40%;
-    //  margin-top: 96%;
+}
+.bx {
+    color: #E24C4C;
+    margin-top: 60px;
+    position: absolute;
+    margin-left: -6%;
+    font-size: 30px;
 }

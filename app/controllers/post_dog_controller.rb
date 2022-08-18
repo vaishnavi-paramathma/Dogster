@@ -23,7 +23,7 @@ class PostDogController < ApplicationController
     @parameter = params[:search]
     @@array = []
     puts @parameter
-    @results = DogList.where('city LIKE?', "%#{@parameter}%")
+    @results = DogList.where('city LIKE?', "%#{@parameter}%") || DogList.where('state LIKE?', "%#{@parameter}")
     @@presence_value = 1
     @results.each do |result|
       @@array.push(result.id)
