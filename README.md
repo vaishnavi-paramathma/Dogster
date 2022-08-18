@@ -1,26 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Project name - Dogster
+What is Dogster ?
+ Dogster is an web application used for rehoming a pet
 
-Things you may want to cover:
+Why did I choose Mom's Delish ?
 
-* Ruby version
 
-* System dependencies
+Features of Mom's Delish :
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-#vaishnavi

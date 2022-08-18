@@ -56,6 +56,6 @@ class HomeController < ApplicationController
     puts params[:wishlist_id]
     cur_wishlist = Wishlist.find(params[:wishlist_id])
     cur_wishlist.destroy
-    redirect_to '/posts'
+    redirect_to '/user_profile'
   end
 end
