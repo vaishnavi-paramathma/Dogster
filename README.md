@@ -8,8 +8,8 @@
 
 ![about](./app/assets/images/homepage-screenshot.jpg)
 
-##Project name - Dogster
-#####What is Dogster ?
+## Project name - Dogster
+##### What is Dogster ?
  This is a application used for rehoming a pet in which user can login and post their dog and another user can see their post and connect with dog owner.
 
 #####Why did I choose Dogster?
@@ -37,51 +37,32 @@ Password encrypted with a gem - 'bcrypt'
 
 
 ***
-###2.sign in 
+### 2.sign in 
 >All fields are required
 Email id and password should be authenticated - ('bcrypt' gem)
 
 ***
-###3.listing the post
+### 3.listing the post
 
  >All user can view all the post created
 Agent can only view the tickets assigned to them
 
 ***
-###4.search by city
+### 4.search by city
  >user can search dogs according to breed,state,city.
 
 ***
-###5.User wishlist
+### 5.User wishlist
   >User can add a dog to their wishlist 
   They can also remove the dog from wishlist 
 
 ***
-###6.delete posts(user)
+### 6.delete posts(user)
 >The user who posted can only delete their post 
 
 
-####Libraries used
+#### Libraries used
 Active Storage
 
-####Future plans
+#### Future plans
 >Admin persona
-# - h1
-
-line
-
---- 
-
-> heder
->
->
-
-**vaishu**
-*vaishu*
-***vaishu***
-
-``` java
-funcation (){
-
-}
-```
