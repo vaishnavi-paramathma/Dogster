@@ -4,7 +4,10 @@
 #### sonarcloud link: https://sonarcloud.io/project/issues?resolved=false&types=BUG&id=vaishnavi-paramathma_Dogster&open=AYKqqnTTIhlpWSN3fGiF
 #### github link: https://github.com/vaishnavi-paramathma/Dogster
 
-###Final project ppt: https://docs.google.com/presentation/d/1pRe02vNBP9uwCIPtjY-6YJwxqRvioJj-B1AQx9rJYDg/edit#slide=id.g147b0e3164b_0_15
+### Final project ppt: https://docs.google.com/presentation/d/1pRe02vNBP9uwCIPtjY-6YJwxqRvioJj-B1AQx9rJYDg/edit#slide=id.g147b0e3164b_0_15
+
+#### Libraries and gem used
+Active Storage,bcrypt,rubocop
 
 ![about](./app/assets/images/homepage-screenshot.jpg)
 
@@ -61,8 +64,7 @@ Agent can only view the tickets assigned to them
 >The user who posted can only delete their post 
 
 
-#### Libraries used
-Active Storage
+
 
 #### Future plans
 >Admin persona
