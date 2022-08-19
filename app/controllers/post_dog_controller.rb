@@ -6,24 +6,25 @@ class PostDogController < ApplicationController
   @@array = []
   @@presence_value = 0
   def posts
+    @current_user = current_user
     @animals_details = DogList.all.order('created_at DESC')
     @presence_value = presence_value_returner
     @search_params = array_returner
 
     @@array = []
     @@presence_value = 0
-    # @pagy, @pagy_post = pagy(DogList.all, items: 3)
-    #   @posts = DogList.order(:@animals_details).page params[:posts]
-
-    #   p"==============================================================================="
-    #   p @animals_details.ids
   end
 
   def search
     @parameter = params[:search]
     @@array = []
     puts @parameter
-    @results = DogList.where('city LIKE?', "%#{@parameter}%") || DogList.where('state LIKE?', "%#{@parameter}")
+
+    @results = DogList.where('city LIKE ? OR state LIKE ? OR breed LIKE ?', "%#{@parameter}%", "%#{@parameter}%",
+                             "%#{@parameter}%")
+
+    puts @results
+
     @@presence_value = 1
     @results.each do |result|
       @@array.push(result.id)
@@ -74,7 +75,7 @@ class PostDogController < ApplicationController
       puts "dog_id is #{dog_list}"
       puts "current_user_id is #{current_user_id}"
       dogs_wishlist = Wishlist.create dog_list_id: dog_list, current_user_id: current_user_id
-      redirect_to '/user_profile'
+      redirect_to '/posts'
       # render plain: true
     end
   end

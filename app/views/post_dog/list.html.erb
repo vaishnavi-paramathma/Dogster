@@ -46,6 +46,8 @@
       
        
       <%= form_with(method: :post, url: "add_animals") do |f| %>
+      <%= hidden_field_tag 'authenticity_token', value: "form_authenticity_token" %>
+
         <div class="list-container"> 
           <br><h1>Pet Details</h1>         
            <% if flash[:error]%>
@@ -77,35 +79,35 @@
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="petneutered">Pet Neutered</label>
-              <div class="select-option"><%= f.select "animal[neutered]", options_for_select([["Yes"],["No"]]),class: 'form-control', id:"input-pet-neutered", required:"true" %></div>
+              <div class="select-option"><%= f.select "animal[neutered]", options_for_select([["Yes",1],["No",0]]),class: 'form-control', id:"input-pet-neutered", required:"true" %></div>
             </div>
             <div class="form-group col-md-6">
               <label for="petvaccine">Pet Vaccination</label>
-              <%= f.select "animal[vaccinated]", options_for_select([["Yes"],["No"]]), class:"form-control",id:"input-pet-vaccine", required:"true" %>
+              <%= f.select "animal[vaccinated]", options_for_select([["Yes",1],["No",0]]), class:"form-control",id:"input-pet-vaccine", required:"true" %>
               
             </div>
           </div>
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="GoodWithDogs">Pet is good with dogs</label>
-               <%= f.select "animal[good_with_dogs]", options_for_select([["Yes"],["No"]]), class:"form-control",id:"input-dogs", required:"true" %>
+               <%= f.select "animal[good_with_dogs]", options_for_select([["Yes",1],["No",0]]), class:"form-control",id:"input-dogs", required:"true" %>
              
             </div>
             <div class="form-group col-md-6">
               <label for="GoodWithCats">Pet is good with cats</label>
-               <%= f.select "animal[good_with_cats]", options_for_select([["Yes"],["No"]]), class:"form-control",id:"input-cats", required:"true" %>
+               <%= f.select "animal[good_with_cats]", options_for_select([["Yes",1],["No",0]]), class:"form-control",id:"input-cats", required:"true" %>
              
             </div>
           </div>
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="GoodWithKids">Pet is good with kids</label>
-              <%= f.select "animal[good_with_kids]", options_for_select([["Yes"],["No"]]), class:"form-control",id:"input-kids", required:"true" %>
+              <%= f.select "animal[good_with_kids]", options_for_select([["Yes",1],["No",0]]), class:"form-control",id:"input-kids", required:"true" %>
         
             </div>
             <div class="form-group col-md-6">
               <label for="PetImage">Pet image</label>
-              <%= f.file_field "animal[image]",class:"form-control",id:"input-image", required:"true" %>
+              <%= f.file_field "animal[image]",class:"form-control",id:"input-image", required:"true"%>
               
             </div>
           </div>
@@ -130,7 +132,7 @@
               </div>
               <div class="form-group col-md-6">
                 <label for="OwnerCity">City</label>
-                <%= f.text_field "animal[city]", class:"form-control",id:"input-city", required:"true" %>
+                <%= f.text_field "animal[city]", class:"form-control",id:"input-city", required:"true"%>
               </div>
             </div>
             <div class="form-group col-md-12">
@@ -139,7 +141,7 @@
               
                 
                 
-             <%= submit_tag "Submit", class: "input-submit", required:"true" %>
+             <%= submit_tag "Submit", class: "input-submit"%>
              <%# <%=submit_tag "Clear form", class: "inputsubmit",id:"reset-button", :type => 'reset'%> 
               
                
