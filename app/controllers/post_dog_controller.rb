@@ -76,7 +76,6 @@ class PostDogController < ApplicationController
       puts "current_user_id is #{current_user_id}"
       dogs_wishlist = Wishlist.create dog_list_id: dog_list, current_user_id: current_user_id
       redirect_to '/posts'
-      # render plain: true
     end
   end
 

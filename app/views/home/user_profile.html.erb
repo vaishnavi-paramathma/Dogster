@@ -89,51 +89,7 @@
    
 <%= javascript_include_tag 'user_profile', 'data-turbolinks-track': 'reload' %>
 
-<!-- <input type="button" value="user_posts" id="btn1" style="position: absolute;"> -->
-<!-- <div class="post-wish-holder">
-  <div class="container">
-    <div class="holder-post">
-      <div class="items-nav-post">
-        <ul>
-          <button id="btnNew1" onclick="btnNew1()"> posts</button>
-          <button id="btnNew2" onclick="btnNew2()">Wishlist</button>
-        </ul>
-        <button id="hello" onclick="hello()">hello</button>
-      </div>
-      <div class="card-pet-wish" >
-        <% if DogList.where(users_id: current_user_id).length != 0%>
-        <% DogList.where(users_id: current_user_id).map do |current_user_dog_list| %>
-        <div id="user_post1">
-            <%= image_tag current_user_dog_list.image, class:"userpost-images"%>
-            <div class="card-text"></div><a class="user_wishlist-delete" href="delete/<%=current_user_dog_list.id%>" >Delete this post</a>                                  
-            <div class="card-text"></div><a href="/post_dog/show/<%= current_user_dog_list.id%>"><h3>See more details</h3></a>
-          </div>
-            <% end %> 
-        <%else%>
-         <h1 class="user_profile">You have not posted yet</h1>
-        <% end %> 
-      </div>
-      
-    </div>
-  </div>
-</div> -->
 
-
-
-
-<!-- <input type="button" value="user_wishlist" id="btn2" style="position: absolute;left:43%">  -->
-
-      <!-- <div class="card-pet-wishlist" >
-        <% wishList.each do|wish|%>
-        <% dog=DogList.find(wish.dog_list_id)%>
-        <div class="card-holder" id="user_wishlist1">
-          <%= image_tag dog.image, class:"card-img"%>
-          <div class="card-text"><a href="/user_profile/<%=wish.id%>" data-method="delete" class="user_wishlist-delete"><%= button_tag "delete" %></a></div>
-          <div class="card-text"><a href="/post_dog/show/<%= dog.id%>"> <h3>See more details</h3></a></div>
-        </div>
-        <% end %> 
-      </div>
-       -->
    
 </div>
 

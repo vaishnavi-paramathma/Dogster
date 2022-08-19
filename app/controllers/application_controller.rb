@@ -10,9 +10,6 @@ class ApplicationController < ActionController::Base
   def current_user
     return @current_user if @current_user
 
-    p '==================================='
-    p '==================================='
-    p '==================================='
     p @current_user
     user_id = session[:current_user_id]
     @current_user = User.find(user_id) if user_id

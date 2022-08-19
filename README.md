@@ -66,22 +66,3 @@ Active Storage
 
 ####Future plans
 >Admin persona
-# - h1
-
-line
-
---- 
-
-> heder
->
->
-
-**vaishu**
-*vaishu*
-***vaishu***
-
-``` java
-funcation (){
-
-}
-```
