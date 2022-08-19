@@ -25,7 +25,7 @@
           </a>
         </li>
 
-        <li class="nav-item custom-nav-link active">
+        <li class="nav-item custom-nav-link">
         <% if @presence==0 %>
           <a class="nav-link text-light h4 px-5 p-1" href="/register">My account
           <%= image_tag('projectpaw.png',alt: "books",class:"img-hover") %>
@@ -33,13 +33,12 @@
           <% else %>
           <% logged_user = User.find(session[:current_user_id]) %>
           <button class="btn btn dropdown-toggle" id="user_button" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= logged_user["first_name"]%></button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-            <a class=" ps-4" href="/user_profile"><button class="dropdown-item" type="button">user profile</button></a>
+          <div class="dropdown-menu" id="dropdown-box" aria-labelledby="dropdownMenu2">
+            <a href="/user_profile" class="dropdown-item" type="button">user profile</a>
             <a href="/logout" class="dropdown-item" type="button" data-method="delete">Log out</a>
           </div>
           </a> 
         <% end %> 
-         
         </li>
         
       </ul>
@@ -76,7 +75,9 @@
           <% wishList.each do|wish|%>
           <% dog=DogList.find(wish.dog_list_id)%>
           <div class="content-holder">
+           
            <a href="/user_profile/<%=wish.id%>" data-method="delete" class="user_wishlist-delete"><i class='bx bxs-heart'></i></a>
+           
           <%= image_tag dog.image, class:"wishlist-images"%>
           <a href="/post_dog/show/<%= dog.id%>">
             <h3 class="seeMore">See more details</h3></a>

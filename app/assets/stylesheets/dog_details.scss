@@ -165,6 +165,7 @@ margin-left: 3%;
     width: 25%;
     margin-left: 9%;
     border-radius: 10px;
+    color: white;
   }
 
   .three {
@@ -174,15 +175,16 @@ margin-left: 3%;
     border-radius: 10px;
   }
   
-  .one p{
+  .one p,.two p,.three p{
    padding-top: 2%;
    margin-left: 5%;
-   color: #6E6E6E;
+   color: white;
+   font-size: 25px;
   }
 
   .one h6, .two h6, .three h6{
     font-size: 25px;
-    margin-left: 22%;
+    margin-left: 20%;
     color: white;
    }
    .my-story h1{
@@ -213,24 +215,6 @@ margin-left: 3%;
     display: flex;
     
   }
-
-  // .owner_name{
-  //   flex: 1 1 auto;
-  //   color: white;
-  //   font-size: 22px;
-  //   font-weight: 600;
-  //   margin-left: -16%;
-  //   margin-top: 10%;
-  // }
-
-  // .ph_no {
-  //   flex: 1 1 auto;
-  //   color: white;
-  //   font-size: 22px;
-  //   font-weight: 600;
-  //   margin-left: 16%;
-  //   margin-top: 10%;
-  // }
 
   .owner_email{
     flex: 1 1 auto;
@@ -272,14 +256,14 @@ margin-left: 3%;
     color: white;
     font-size: 20px;
     font-weight: 600;
-    margin-left: -34%;
+    margin-left: -50%;
   }
   .user_address{
     margin-top: 20%;
     color: white;
     font-size: 20px;
     font-weight: 600;
-    margin-left: 13%;
+    margin-left: 16%;
   }
 
 

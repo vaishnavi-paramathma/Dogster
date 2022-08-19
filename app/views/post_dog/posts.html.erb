@@ -47,7 +47,7 @@
   <div class="search-filters-container">
     <%= form_tag('/search', :method=> "get") do%>
       <div class="search-bar">
-        <input type="text" name="search" placeholder="Search by city" class="search-input">
+        <input type="text" name="search" placeholder="Search by state,city or dog breed" class="search-input">
         <%= button_tag "Apply filter" , :class=>'apply-filter-button' %>
       </div>
       <% end %>
@@ -65,7 +65,17 @@
                 <%= "posted on: #{ani.created_at}" %>
               </div>
               <div>
+              <% if Wishlist.find_by(dog_list_id: ani.id) == nil%>
               <a href="/user_profile/<%= ani['id']%>"data-method="post"> <i class='bx bx-heart' id="wishlist-icon"></i></a>
+              
+              <% else %>
+              <% @wishlist_id = (Wishlist.where(dog_list_id: ani.id).and(Wishlist.where(current_user_id: @current_user.id))).first %>
+              <% if @wishlist_id != nil%>
+              <a href="/user_profile/<%= @wishlist_id.id %>" data-method = "delete" > <i class='bx bxs-heart' id="wishlist-icon"></i></a>
+              <% else %>
+              <a href="/user_profile/<%= ani['id']%>"data-method="post"> <i class='bx bx-heart' id="wishlist-icon"></i></a>
+              <% end %>
+              <% end %>
                 <%= image_tag ani.image, class:"adopt-img"%>
               </div>
               
