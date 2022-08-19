@@ -12,10 +12,10 @@
 ##### What is Dogster ?
  This is a application used for rehoming a pet in which user can login and post their dog and another user can see their post and connect with dog owner.
 
-#####Why did I choose Dogster?
+##### Why did I choose Dogster?
 Reason why i choose this project is because i am from village if people are moving to another place so they are unable to take their dogs to new place so they simply leave their dogs, after the dog become homeless. So to find a solution for that i created a dogster where the dog owners can find a new lovely home for their dog
 
-#####Features of Dogster :
+##### Features of Dogster :
   1.User authentication
   2.Adding a post(user)
   3.listing the post(user)
@@ -25,7 +25,7 @@ Reason why i choose this project is because i am from village if people are movi
 
 
 
-###1.sign up
+### 1.sign up
 >All fields are required
  No fields can be nil
 First name and Last name must contain atleast 3 characters (Validated with Name Regex Pattern)
