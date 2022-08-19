@@ -6,7 +6,7 @@
 
 #### Final project ppt: https://docs.google.com/presentation/d/1pRe02vNBP9uwCIPtjY-6YJwxqRvioJj-B1AQx9rJYDg/edit#slide=id.g147b0e3164b_0_15
 
-#### Libraries and gem used
+#### Gem used
 Active Storage,bcrypt,rubocop
 
 ![about](./app/assets/images/homepage-screenshot.jpg)
