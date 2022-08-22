@@ -8,6 +8,13 @@
 
 ![about](./app/assets/images/homepage-screenshot.jpg)
 
+
+####Gems and Libraries used in this project
+Active Storage
+> gem 'bcrypt'
+ gem 'rubocop'
+ ActiveStorage 
+
 ##Project name - Dogster
 #####What is Dogster ?
  This is a application used for rehoming a pet in which user can login and post their dog and another user can see their post and connect with dog owner.
@@ -61,8 +68,7 @@ Agent can only view the tickets assigned to them
 >The user who posted can only delete their post 
 
 
-####Libraries used
-Active Storage
+
 
 ####Future plans
 >Admin persona
